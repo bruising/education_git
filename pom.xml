@@ -49,6 +49,7 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+
             <groupId>cz.mallat.uasparser</groupId>
             <artifactId>uasparser</artifactId>
             <version>0.6.2</version>
@@ -57,7 +58,13 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.55</version>
+
         </dependency>
+        <dependency>
+        <groupId>com.qiniu</groupId>
+        <artifactId>qiniu-java-sdk</artifactId>
+        <version>6.1.9</version>
+    </dependency>
     </dependencies>
 
     <build>
