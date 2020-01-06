@@ -72,10 +72,10 @@
             <version>1.2.55</version>
         </dependency>
         <dependency>
-        <groupId>com.qiniu</groupId>
-        <artifactId>qiniu-java-sdk</artifactId>
-        <version>6.1.9</version>
-    </dependency>
+            <groupId>com.qiniu</groupId>
+            <artifactId>qiniu-java-sdk</artifactId>
+            <version>6.1.9</version>
+        </dependency>
     </dependencies>
 
     <build>
