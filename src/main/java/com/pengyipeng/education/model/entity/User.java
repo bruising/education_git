@@ -1,5 +1,7 @@
 package com.pengyipeng.education.model.entity;
 
+import java.util.Date;
+
 /**
  * @author 吴成卓
  * @version V1.0
@@ -9,4 +11,5 @@ package com.pengyipeng.education.model.entity;
  * @date 2020/1/4 星期六 15:50
  */
 public class User {
+
 }
