@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c97b3648-673a-4254-8922-ba83052c05d1" name="Default Changelist" comment="" />
+    <list default="true" id="c97b3648-673a-4254-8922-ba83052c05d1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_3_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,6 +56,7 @@
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1578298540039" />
@@ -91,7 +96,7 @@
       <updated>1578120221777</updated>
       <workItem from="1578120224550" duration="311000" />
       <workItem from="1578296445209" duration="2074000" />
-      <workItem from="1578307635733" duration="58000" />
+      <workItem from="1578307635733" duration="383000" />
     </task>
     <task id="LOCAL-00001" summary="刘千测试">
       <created>1578298085858</created>
@@ -107,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578298485092</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="gxl测试">
+      <created>1578307850154</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1578307850154</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -115,17 +127,19 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="刘千测试" />
-    <option name="LAST_COMMIT_MESSAGE" value="刘千测试" />
+    <MESSAGE value="郭新龙测试" />
+    <MESSAGE value="gxl测试" />
+    <option name="LAST_COMMIT_MESSAGE" value="gxl测试" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578307740715">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578307740715" />
-    <state x="562" y="115" key="CommitChangelistDialog2" timestamp="1578307830241">
+    <state x="562" y="115" key="CommitChangelistDialog2" timestamp="1578307847888">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="562" y="115" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1578307830241" />
+    <state x="562" y="115" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1578307847888" />
     <state x="1225" y="245" key="FileChooserDialogImpl" timestamp="1578307687142">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -135,14 +149,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="490" y="178" key="Maven.ArtifactSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578307748541" />
-    <state x="461" y="164" key="SettingsEditor" timestamp="1578307698130">
+    <state x="461" y="164" key="SettingsEditor" timestamp="1578372560247">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1578307698130" />
+    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1578372560247" />
     <state x="461" y="166" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1578120253256" />
-    <state x="744" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578307784237">
+    <state x="744" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578372528523">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="744" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1578307784237" />
+    <state x="744" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1578372528523" />
   </component>
 </project>
