@@ -32,7 +32,7 @@ public class MyCoursesController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "sid",value = "sid",dataType = "String",example = "00001")
     })
-    @RequestMapping(value = "selectMyCourses",produces = "text/html;charset=UTF-8",method = RequestMethod.GET)
+    @RequestMapping(value = "selectMyCourses",produces = "application/json",method = RequestMethod.GET)
     @ResponseBody
     public String selectMyCourses(@RequestParam(value = "sid",required = false,defaultValue = "0") Integer sid){
         List<CourseProjectTeacherStudentVO> list=myCoursesService.selectMyCourses(sid);
