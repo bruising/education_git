@@ -1,5 +1,7 @@
 package com.pengyipeng.education.mapper;
 
+import org.apache.ibatis.annotations.Mapper;
+
 /**
  * @author 郭新龙
  * @version V1.0
@@ -7,6 +9,7 @@ package com.pengyipeng.education.mapper;
  * @Package com.pengyipeng.education.mapper
  * @date 2020/1/8 14:42 星期三
  */
-public class MyCoursesDao {
+@Mapper
+public interface MyCoursesMapper {
 
 }
