@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c97b3648-673a-4254-8922-ba83052c05d1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_3_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pengyipeng/education/model/vo/UserVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pengyipeng/education/model/vo/UserVo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,12 +37,6 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="750" />
-    <option name="y" value="18" />
-    <option name="width" value="974" />
-    <option name="height" value="1057" />
-  </component>
   <component name="ProjectId" id="1Vv4QrQW5I5PwHXrY2ZZstBTNv7" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -61,7 +56,10 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1578298540039" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RunManager">
     <configuration name="EducationApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -97,6 +95,8 @@
       <workItem from="1578120224550" duration="311000" />
       <workItem from="1578296445209" duration="2074000" />
       <workItem from="1578307635733" duration="383000" />
+      <workItem from="1578372513020" duration="3492000" />
+      <workItem from="1578443248561" duration="207000" />
     </task>
     <task id="LOCAL-00001" summary="刘千测试">
       <created>1578298085858</created>
@@ -119,7 +119,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578307850154</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="gxl测试">
+      <created>1578372593892</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1578372593892</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,10 +143,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578307740715" />
-    <state x="562" y="115" key="CommitChangelistDialog2" timestamp="1578372592696">
+    <state x="562" y="115" key="CommitChangelistDialog2" timestamp="1578443489943">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="562" y="115" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1578372592696" />
+    <state x="562" y="115" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1578443489943" />
     <state x="1225" y="245" key="FileChooserDialogImpl" timestamp="1578307687142">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -149,14 +156,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="490" y="178" key="Maven.ArtifactSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578307748541" />
-    <state x="461" y="164" key="SettingsEditor" timestamp="1578372629799">
+    <state x="184" y="92" key="MergeDialog" timestamp="1578373194654">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1578372629799" />
+    <state x="184" y="92" key="MergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578373194654" />
+    <state x="666" y="235" key="MultipleFileMergeDialog" timestamp="1578373194662">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="666" y="235" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578373194662" />
+    <state x="461" y="164" key="SettingsEditor" timestamp="1578376322125">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1578376322125" />
     <state x="461" y="166" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1578120253256" />
-    <state x="744" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578372601923">
+    <state x="552" y="256" key="Vcs.Push.Dialog.v2" timestamp="1578372744213">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="744" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1578372601923" />
+    <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1578372744213" />
+    <state x="744" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578443403621">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="744" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1578443403621" />
   </component>
 </project>
