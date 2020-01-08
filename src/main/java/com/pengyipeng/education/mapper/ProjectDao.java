@@ -1,6 +1,7 @@
 package com.pengyipeng.education.mapper;
 
 import com.pengyipeng.education.model.entity.Project;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.List;
  * @Author: 牛岩松
  * @Date: 2020/1/8
  */
-
+@Mapper
 public interface ProjectDao {
     //查询展示项目
     List<Project> getProgect(@Param("name") String name, @Param("startDate") String startDate, @Param("overDate") String overDate, @Param("flag") Integer flag, @Param("page") Integer page, @Param("limit") Integer limit);
