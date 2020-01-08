@@ -1,4 +1,4 @@
-package com.pengyipeng.education.model.entity;
+package com.pengyipeng.education.model.vo;
 
 /**
  * @author xinhai
