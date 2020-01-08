@@ -1,4 +1,4 @@
-package com.pengyipeng.education.util.swagger.swagger;
+package com.pengyipeng.education.util.swagger;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
