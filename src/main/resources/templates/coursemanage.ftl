@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title></title>
-    <script src="../static/jquery.min.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
 </head>
 <body>
 <form action="coursesearch">
@@ -20,18 +20,23 @@
 
 <table align="center">
     <tr>
-        <td>课程id</td>
-        <td>课程名称</td>
-        <td>定价</td>
-        <td>学员数</td>
-        <td>状态</td>
-        <td>显示顺序</td>
-        <td>操作</td>
+    <td>课程id</td>
+    <td>课程名称</td>
+    <td>定价</td>
+    <td>学员数</td>
+    <td>状态</td>
+    <td>显示顺序</td>
+    <td>操作</td>
     </tr>
 
     <#list course as c>
     <tr>
-        <td>${c.course_id!}</td>
+       <span id="course_id"2+${c.course_id!} name="cou rse_id" value="${c.course_id!}"></span> <td>${c.course_id!}</td>
+
+      <#--  <td>
+            <input type="text" value=${c.course_id!} id="course_id"+${c.course_id!} name="course_id">
+            &lt;#&ndash; ${c.course_sort!}&ndash;&gt;
+        </td>-->
         <td>${c.course_name!}</td>
         <td>${c.course_price!}</td>
         <td>${c.course_stunum!}</td>
@@ -52,18 +57,35 @@
 
 </table>
 
-
-
-
-
-
-
 </body>
 
 <script type="text/javascript">
     $(function () {
-        $("sort").blur(function () {
-            alert("光标移开了")
+        $("#sort").blur(function () {
+            var sort = $("#sort").val()
+            $.ajax({
+                type:"post",
+                url:"updateByorder",
+                data:{
+                    sort:sort,
+                    courseid:courseid
+                },
+                dateType:"json",
+                success:function (data) {
+                    var responseText = JSON.parse(data)
+                    if (responseText.status == "no"){
+                            alert("该顺序存在，请输入一个不存在的顺序")
+                    } else {
+                        //进行修改顺序
+
+                        alert("修改成功")
+                    }
+
+                }
+
+
+            })
+
         });
     })
 

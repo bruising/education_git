@@ -1,14 +1,23 @@
 package com.pengyipeng.education.controller;
 
 
+import com.alibaba.fastjson.JSON;
+import com.pengyipeng.education.model.entity.Course;
 import com.pengyipeng.education.model.vo.CourseStudentVo;
 import com.pengyipeng.education.service.SearchCourseService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 课程展示和搜索
@@ -79,6 +88,55 @@ public class Searchcourse {
         }
 
     }
+
+    /**
+     * 修改顺序
+     * @param sort
+     */
+    @RequestMapping(value = "updateByorder")
+    public void updateByOrder(@RequestParam(value = "sort") String sort,@Param(value = "courseid") String courseid, HttpServletResponse response) throws IOException {
+        System.out.println("课程id"+courseid);
+        Map<String,Object> message=new HashMap<String, Object>();
+        //验证该顺序是否存在 存在返回false
+        Boolean aBoolean = this.checkByorder(sort);
+        if (aBoolean){
+         //可以修改
+            message.put("status","yes");
+            //修改顺序
+            int i = service.updateSortByCourseid(sort, courseid);
+            if (i>0){
+                System.out.println("修改成功");
+            }else{
+                System.out.println("修改失败");
+            }
+        }else{
+            //不可以修改
+            message.put("status","no");
+
+        }
+        String data = JSON.toJSONString(message);
+        System.out.println(data);
+        response.setContentType("text/html");
+        PrintWriter writer = response.getWriter();
+        writer.write(data);
+        writer.flush();
+        writer.close();
+    }
+
+    /**
+     * 判断修改的顺序是否存在，存在的话 返回false
+     * 不存在的话返回true
+     * @return
+     */
+    public Boolean checkByorder(String sort){
+        List<Course> courses = service.checkByOrder(sort);
+        if (courses.size() > 0){
+
+            return  false;
+        }
+        return true;
+    }
+
 
 
 

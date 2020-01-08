@@ -2,6 +2,7 @@ package com.pengyipeng.education.service;
 
 
 
+import com.pengyipeng.education.model.entity.Course;
 import com.pengyipeng.education.model.vo.CourseStudentVo;
 
 import java.util.List;
@@ -34,4 +35,19 @@ public interface SearchCourseService {
      * @return
      */
      int lshelftBycourseid(String course_id);
+
+    /**
+     * 查询修改的顺序是否存在
+     * @param sort
+     * @return
+     */
+     List<Course> checkByOrder(String sort);
+
+    /**
+     * 根据课程id修改顺序
+     * @param sort  顺序
+     * @param courseid  课程id
+     * @return 返回修改的结果
+     */
+     int updateSortByCourseid(String sort,String courseid);
 }
