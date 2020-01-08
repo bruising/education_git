@@ -12,10 +12,10 @@ import java.util.Date;
  */
 public class CourseStudentVo {
     private String course_id;
-    private  String course_name;
+    private String course_name;
     private double course_price;
     private String course_status;
-    private  int course_sort;
+    private int course_sort;
     private Date course_date;
     private String course_introduce;
     private String course_cycle;
