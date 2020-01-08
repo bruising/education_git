@@ -33,7 +33,7 @@ public class TeacherController {
      * @param status 教师状态
      * @return 教师数据
      */
-    @ApiOperation(value = "根据条件返回查询到的教师信息", notes = "成功则返回教师数据，失败则返回提示字符串")
+    @ApiOperation(value = "根据条件返回查询到的教师信息", notes = "成功则返回教师数据，失败则返回提示字符串（教师详情可以从返回数据中按照教师ID提取）")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "phone", value = "phone", dataType = "String", example = "13322221111"),
             @ApiImplicitParam(name = "tname", value = "tname", dataType = "String", example = "xx"),
