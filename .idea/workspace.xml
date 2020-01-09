@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c97b3648-673a-4254-8922-ba83052c05d1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_qiniu_happy_dns_java_0_1_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_qiniu_qiniu_java_sdk_7_2_28.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_okhttp3_okhttp_3_14_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_okio_okio_1_17_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pengyipeng/education/mapper/MyCoursesMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pengyipeng/education/service/MyCoursesService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pengyipeng/education/service/impl/MyCoursesServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mappers/MyCoursesMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pengyipeng/education/mapper/MyCoursesDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pengyipeng/education/controller/MyCoursesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pengyipeng/education/controller/MyCoursesController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,13 +49,6 @@
         <item name="education_text@122.51.168.40" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="education_text: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="course_applyphase: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="education_text@122.51.168.40" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="education_text: schema" type="76f4a085:MysqlImplModel$Schema" />
         <item name="course_project: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
       <path>
@@ -74,6 +57,27 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="education_text: schema" type="76f4a085:MysqlImplModel$Schema" />
         <item name="course_student: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="education_text@122.51.168.40" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="education_text: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="project: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="education_text@122.51.168.40" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="education_text: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="student_management: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="education_text@122.51.168.40" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="education_text: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="teacher_manage: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -106,7 +110,9 @@
     </option>
   </component>
   <component name="ProjectId" id="1Vv4QrQW5I5PwHXrY2ZZstBTNv7" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="compactDirectories" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -114,6 +120,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
@@ -124,16 +131,31 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1578298540039" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/pengyipeng/education/service/impl" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.pengyipeng.education.model.vo" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\github\education_git\src\main\java\com\pengyipeng\education\service\impl" />
+      <recent name="D:\github\education_git\src\main\java\com\pengyipeng\education\service" />
+      <recent name="D:\github\education_git\src\main\resources\mappers" />
+      <recent name="D:\github\education_git\src\main\java\com\pengyipeng\education\mapper" />
+      <recent name="D:\github\education_git\src\main\java\com\pengyipeng\education\controller" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="EducationApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="education" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.pengyipeng.education.EducationApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -143,6 +165,7 @@
     <option name="viewStates">
       <list>
         <serviceView>
+          <option name="contentProportion" value="0.14772727" />
           <treeState>
             <expand />
             <select />
@@ -150,6 +173,10 @@
         </serviceView>
       </list>
     </option>
+  </component>
+  <component name="SshConsoleOptionsProvider">
+    <option name="myEncoding" value="UTF-8" />
+    <option name="myConnectionType" value="NONE" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -169,6 +196,7 @@
       <workItem from="1578461421928" duration="2046000" />
       <workItem from="1578464017590" duration="642000" />
       <workItem from="1578464668139" duration="1992000" />
+      <workItem from="1578485132579" duration="368000" />
     </task>
     <task id="LOCAL-00001" summary="刘千测试">
       <created>1578298085858</created>
@@ -219,32 +247,91 @@
       <option name="project" value="LOCAL" />
       <updated>1578466069516</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="gxl测试">
+      <created>1578484798004</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1578484798004</updated>
+    </task>
+    <task id="LOCAL-00009" summary="gxl测试">
+      <created>1578485265540</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1578485265540</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="刘千测试" />
     <MESSAGE value="郭新龙测试" />
     <MESSAGE value="gxl测试" />
     <option name="LAST_COMMIT_MESSAGE" value="gxl测试" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578461529159">
+    <state x="414" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578483577648">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578461529159" />
-    <state x="562" y="115" key="CommitChangelistDialog2" timestamp="1578466912780">
+    <state x="414" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578483577648" />
+    <state x="765" y="213" key="#com.intellij.ide.util.MemberChooser" timestamp="1578482559410">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="562" y="115" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1578466912780" />
-    <state x="1225" y="245" key="FileChooserDialogImpl" timestamp="1578307687142">
+    <state x="765" y="213" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1578482559410" />
+    <state x="574" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1578482996603">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1225" y="245" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1578307687142" />
+    <state x="574" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578482996603" />
+    <state x="690" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1578483354220">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578483354220" />
+    <state x="562" y="115" key="CommitChangelistDialog2" timestamp="1578485263703">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="562" y="115" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1578485263703" />
+    <state x="1225" y="245" key="FileChooserDialogImpl" timestamp="1578480674298">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1225" y="245" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1578480674298" />
     <state x="740" y="265" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1578120490886" />
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1578485504232">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578485504232" />
+    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1578485504232">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578485504232" />
+    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1578485504232">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578485504232" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1578485504232">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578485504232" />
+    <state width="1877" height="281" key="GridCell.Tab.1.bottom" timestamp="1578485504232">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="281" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578485504232" />
+    <state width="1877" height="281" key="GridCell.Tab.1.center" timestamp="1578485504232">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="281" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578485504232" />
+    <state width="1877" height="281" key="GridCell.Tab.1.left" timestamp="1578485504232">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="281" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578485504232" />
+    <state width="1877" height="281" key="GridCell.Tab.1.right" timestamp="1578485504232">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="281" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578485504232" />
     <state x="490" y="178" key="Maven.ArtifactSearchDialog" timestamp="1578307748541">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -253,23 +340,23 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="184" y="92" key="MergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578466843522" />
-    <state x="220" y="235" width="1118" height="569" key="MultipleFileMergeDialog" timestamp="1578466859452">
+    <state x="220" y="235" width="1118" height="569" key="MultipleFileMergeDialog" timestamp="1578484775988">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="220" y="235" width="1118" height="569" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578466859452" />
-    <state x="461" y="164" key="SettingsEditor" timestamp="1578463555865">
+    <state x="220" y="235" width="1118" height="569" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578484775988" />
+    <state x="461" y="164" key="SettingsEditor" timestamp="1578483837437">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1578463555865" />
+    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1578483837437" />
     <state x="461" y="166" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1578120253256" />
-    <state x="552" y="256" key="Vcs.Push.Dialog.v2" timestamp="1578372744213">
+    <state x="552" y="256" key="Vcs.Push.Dialog.v2" timestamp="1578485276617">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1578372744213" />
-    <state x="744" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578466873314">
+    <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1578485276617" />
+    <state x="744" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578485554525">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="744" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1578466873314" />
+    <state x="744" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1578485554525" />
     <state x="334" y="223" key="new project wizard" timestamp="1578446758596">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

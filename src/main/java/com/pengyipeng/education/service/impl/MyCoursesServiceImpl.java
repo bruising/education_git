@@ -1,10 +1,12 @@
 package com.pengyipeng.education.service.impl;
 
-import com.pengyipeng.education.mapper.MyCoursesMapper;
+import com.pengyipeng.education.mapper.MyCoursesDao;
+import com.pengyipeng.education.model.vo.CourseProjectTeacherStudentVO;
 import com.pengyipeng.education.service.MyCoursesService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author 郭新龙
@@ -17,6 +19,10 @@ import javax.annotation.Resource;
 public class MyCoursesServiceImpl implements MyCoursesService {
 
     @Resource
-    private MyCoursesMapper myCoursesMapper;
+    private MyCoursesDao myCoursesDao;
 
+    @Override
+    public List<CourseProjectTeacherStudentVO> selectMyCourses(Integer sid) {
+        return myCoursesDao.selectMyCourses(sid);
+    }
 }
