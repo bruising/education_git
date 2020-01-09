@@ -17,4 +17,11 @@ public interface StudentService {
      * @return
      */
     StudentVo checkStuByUserId(@Param("userid") int userid);
+
+    /**
+     * 修改学生用户信息
+     * @param studentVo
+     * @return
+     */
+    int updateInfo(StudentVo studentVo);
 }
