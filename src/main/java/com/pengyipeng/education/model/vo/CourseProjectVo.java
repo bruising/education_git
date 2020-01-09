@@ -8,4 +8,5 @@ package com.pengyipeng.education.model.vo;
  * @date 2020/1/6 19:53 星期一
  */
 public class CourseProjectVo {
+
 }

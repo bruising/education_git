@@ -2,6 +2,7 @@ package com.pengyipeng.education.service.impl;
 
 import com.pengyipeng.education.mapper.AddCourseDao;
 import com.pengyipeng.education.model.entity.Apply_Phase;
+import com.pengyipeng.education.model.entity.Course;
 import com.pengyipeng.education.model.entity.Project;
 import com.pengyipeng.education.model.entity.TeacherManage;
 import com.pengyipeng.education.service.AddCourseService;
@@ -89,5 +90,14 @@ public class AddCourseServiceImpl implements AddCourseService {
     public int selectCourse_sort() {
         int sort=addCourseDao.selectCourse_sort();
         return sort;
+    }
+
+    @Override
+    public int getCourse(int course_id) {
+        Course c=addCourseDao.getCourse(course_id);
+        if(c!=null){
+            return -1;
+        }
+        return 1;
     }
 }

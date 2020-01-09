@@ -7,13 +7,18 @@ import com.pengyipeng.education.model.entity.Result;
 import com.pengyipeng.education.model.entity.TeacherManage;
 import com.pengyipeng.education.service.AddCourseService;
 import com.pengyipeng.education.util.redis.RedisUtil;
+import com.pengyipeng.education.util.qiniu.QNUtil;
+import com.qiniu.http.Response;
 import io.swagger.annotations.*;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -34,7 +39,8 @@ public class AddCourseController {
     private AddCourseService addCourseService;
     @Resource
     private RedisUtil redisUtils;
-
+    @Resource
+    private QNUtil qnUtil;
 
     @ApiOperation(value = "输入课程信息",notes = "对了返回true，错了就返回false")
     @ApiImplicitParams({
@@ -44,9 +50,9 @@ public class AddCourseController {
             @ApiImplicitParam(name = "course_cycle", value = "course_cycle", dataType = "String", example = "8周"),
             @ApiImplicitParam(name = "course_ability_training", value = "course_ability_training", dataType = "String", example = "动手能力"),
             //@ApiImplicitParam(name = "course_pic", value = "course_pic", dataType = "String", example = "Http://www.budai.com"),
-            @ApiImplicitParam(name = "project_id", value = "project_id",paramType = "query", dataType = "int[]", example ="1"),
-            @ApiImplicitParam(name = "apply_phase_id", value = "apply_phase_id",paramType = "query", dataType = "int[]", example = "1"),
-            @ApiImplicitParam(name = "teacher_id", value = "teacher_id",paramType = "query", dataType = "String[]", example = "T2937")
+            @ApiImplicitParam(name = "project_id", value = "project_id",allowMultiple = true,paramType = "query", dataType = "int", example ="[1,2]"),
+            @ApiImplicitParam(name = "apply_phase_id", value = "apply_phase_id",allowMultiple = true, paramType = "query", dataType = "int", example = "[1,2]"),
+            @ApiImplicitParam(name = "teacher_id", value = "teacher_id",allowMultiple = true,paramType = "query", dataType = "String", example = "['T2937','T2938']")
 
             //@ApiImplicitParam(name = "name", value = "name", dataType = "String", example = ""),
     })
@@ -80,18 +86,9 @@ public class AddCourseController {
         redisUtils.set("course_cycle",course_cycle);
         redisUtils.set("course_ability_training",course_ability_training);
         //redisUtils.set("course_pic",course_pic);
-        int intFlag = (int)(Math.random() * 100000);
-        String flag = String.valueOf(intFlag);
-        if (flag.length() == 5 && flag.substring(0, 1).equals("9"))
-        {
-            int course_id=intFlag+181000000;
-            redisUtils.set("course_id",course_id+"");
-        }
-        else {
-            intFlag = intFlag + 10000;
-            int course_id=intFlag+181000000;
-            redisUtils.set("course_id",course_id+"");
-        }
+
+        int course_id=cid();
+        redisUtils.set("course_id",course_id+"");
         int sort=addCourseService.selectCourse_sort();
         int course_sort=sort+1;
         redisUtils.set("course_sort",course_sort+"");
@@ -122,6 +119,31 @@ public class AddCourseController {
         // result.setData("true");
         return result;
     }
+    public int cid(){
+        int c=createCourse_id();
+        while(addCourseService.getCourse(c)==-1){
+            c=createCourse_id();
+        }
+        return c;
+    }
+    public int createCourse_id(){
+        int course_id=0;
+
+        int intFlag = (int)(Math.random() * 100000);
+
+        String flag = String.valueOf(intFlag);
+        if (flag.length() == 5 && flag.substring(0, 1).equals("9"))
+        {
+             course_id=intFlag+181000000;
+            //redisUtils.set("course_id",course_id+"");
+        }
+        else {
+            intFlag = intFlag + 10000;
+             course_id=intFlag+181000000;
+            //redisUtils.set("course_id",course_id+"");
+        }
+        return course_id;
+    }
     //@RequestMapping("/addCourse_applyphase")
 //    public void addCourse_applyphase(@RequestParam("course_id")int course_id,@RequestParam("apply_phase_id")int[] apply_phase_id){
 //        Map<String,Object> map=new HashMap<>();
@@ -131,6 +153,12 @@ public class AddCourseController {
 //            int status=addCourseService.addCourse_applyphase(map);
 //        }
 //    }
+
+    /**
+     * 查询项目
+     * @param pname
+     * @return
+     */
     @ApiOperation(value = "输入项目信息",notes = "查询成功返回查询结果，错了就返回字符串")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "project_name", value = "project_name", dataType = "String", example = "街"),
@@ -163,12 +191,22 @@ public class AddCourseController {
 
         return result;
     }
+
+    /**
+     * 查询适应阶段
+     * @param request
+     */
     @PostMapping (value = "/getApply_phase")
-    public void getApply_phase(HttpServletResponse response, HttpServletRequest request){
+    public void getApply_phase( HttpServletRequest request){
         List<Apply_Phase> list=addCourseService.getApply_phase();
         request.setAttribute("AList",list);
     }
 
+    /**
+     * 查询老师
+     * @param tname
+     * @return
+     */
     @ApiOperation(value = "输入老师信息",notes = "查询成功返回查询结果，错了就返回字符串")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "teacher_name", value = "teacher_name", dataType = "String", example = "王"),
@@ -199,6 +237,41 @@ public class AddCourseController {
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        }
+        return result;
+    }
+
+    /**
+     * 文件上传
+     * @param pcFile
+     * @return
+     */
+
+    @ApiOperation(value = "文件信息",notes = "查询成功返回url，错了就返回字符串")
+    @ApiImplicitParams({
+            //@ApiImplicitParam(name = "teacher_name", value = "teacher_name", dataType = "String", example = "王"),
+    })
+    @ApiResponses({
+            @ApiResponse(code = 123,message = "上传失败"),
+            @ApiResponse(code = 200,message = "上传成功")
+
+    })
+    @PostMapping(value = "/upload", headers = "content-type=multipart/form-data")
+    @ResponseBody
+    public Result upload(@RequestParam(value = "pcFile")MultipartFile pcFile
+                         ) {
+        Result result=new Result();
+        try {
+            String url = qnUtil.fileUpload(pcFile.getInputStream(), pcFile.getOriginalFilename());
+            redisUtils.set("course_pic",url);
+            System.out.println(url);
+
+            result.setCode(200);
+            result.setMessage("上传路径信息");
+            result.setData(url);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return result;
     }
 }

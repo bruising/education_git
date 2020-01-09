@@ -30,7 +30,5 @@ public class StudentMapperServiceImpl implements StudentManagerService {
     public List<StudentProjectCourseVo> selectCourseNameBySid(int sid){
         return studentManagerMapper.selectCourseNameBySid(sid);
     }
-    public int insertStudent(StudentMangerVo studentMangerVo){
-        return studentManagerMapper.insertStudent(studentMangerVo);
-    }
+
 }
