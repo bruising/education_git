@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 写sql语句 namespace写接口的位置-->
+<mapper namespace="com.pengyipeng.education.mapper.SearchcourseDao">
+
+    <select id="SearchCourse" resultType="com.pengyipeng.education.model.vo.CourseStudentVo">
+        select c.*,count(cs.student_id) as course_stunum from course as c  left join course_student as cs on c.course_id=cs.course_id GROUP BY  c.course_id
+    </select>
+
+    <select id="SearchCourseBycondition" resultType="com.pengyipeng.education.model.vo.CourseStudentVo">
+        select c.*,count(cs.student_id) as course_stunum from course as c  left join course_student as cs on c.course_id=cs.course_id
+        <where>
+           <if test="name != null and name != '' ">
+              and c.course_name like "%"#{name}"%"
+           </if>
+           <if test="date != null and date != '' ">
+               and c.course_date=#{date}
+           </if>
+           <if test="status != null and status != '' ">
+               and c.course_status=#{status}
+           </if>
+        </where>
+        GROUP BY  c.course_id
+    </select>
+
+    <update id="lshelfBycourse_id">
+        update course set course_status=0 where course_id=#{course_id}
+    </update>
+
+
+    <select id="checkByOrder" resultType="com.pengyipeng.education.model.entity.Course">
+        select * from course where course_sort =#{sort}
+    </select>
+    
+    <update id="updateBycourseOrder">
+        update course set course_sort = #{sort} where course_id = #{courseid}
+    </update>
+
+
+
+
+</mapper>

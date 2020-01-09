@@ -3,12 +3,21 @@ package com.pengyipeng.education.model.vo;
 import com.pengyipeng.education.model.entity.Project;
 
 import java.util.List;
-
+/**
+ * @author niuys
+ * @version V1.0
+ * @Project: education
+ * @Package com.pengyipeng.education.Model
+ * @date 2020/1/5 21:28 星期日
+ * 项目和学生数量的vo实体类
+ */
 public class ProjectVO {
     private List<Project> data;
     private Integer count;
     private Integer code;
     private String msg;
+
+
 
     public List<Project> getData() {
         return data;

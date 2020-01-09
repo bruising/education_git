@@ -2,8 +2,99 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c97b3648-673a-4254-8922-ba83052c05d1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_3_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/EducationApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/controller/AddCourseController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/controller/MyCoursesController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/controller/ProjectController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/controller/QNController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/controller/StudentController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/controller/StudentMannagerController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/controller/UserController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/mapper/AddCourseDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/mapper/FileUploadMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/mapper/MyCoursesDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/mapper/ProjectDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/mapper/StudentDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/mapper/StudentManagerMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/mapper/UserMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/model/entity/Apply_Phase.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/model/entity/ClassTimes.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/model/entity/CourseProject.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/model/entity/CourseStudent.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/model/entity/CourseTeacher.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/model/entity/Message.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/model/entity/StudentManagement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/model/entity/TeacherManage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/model/entity/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/model/vo/CourseApplyVo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/model/vo/CourseProjectTeacherStudentVO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/model/vo/CourseProjectVo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/model/vo/CourseTeacherVo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/model/vo/ProStuUserMesVO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/model/vo/ProStuUserVO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/model/vo/ProjectVO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/model/vo/StudentMangerVo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/model/vo/StudentProjectCourseVo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/model/vo/StudentVo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/service/AddCourseService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/service/MyCoursesService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/service/ProjectDaoService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/service/StudentManagerService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/service/StudentService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/service/UserService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/service/impl/AddCourseServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/service/impl/MyCoursesServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/service/impl/ProjectDaoServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/service/impl/StudentMapperServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/service/impl/StudentServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/service/impl/UserServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/util/qiniu/QNConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/util/qiniu/QNUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/util/redis/RedisConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/util/redis/RedisUtil$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/util/redis/RedisUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/util/swagger/SwaggerConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mappers/CMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mappers/FileUploadMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mappers/MyCoursesMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mappers/ProjectMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mappers/StudentUpdateMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mappers/UserMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/js/jquery-3.4.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/说明.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/result.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/updateInfo.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/upload.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/userInfo.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/说明.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/pengyipeng/education/EducationApplicationTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pengyipeng/education/controller/MyCoursesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pengyipeng/education/controller/MyCoursesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/education.iml" beforeDir="false" afterPath="$PROJECT_DIR$/education.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pengyipeng/education/controller/AddCourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pengyipeng/education/controller/AddCourseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pengyipeng/education/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pengyipeng/education/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pengyipeng/education/util/RedisConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pengyipeng/education/util/RedisUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pengyipeng/education/util/addCourseByRedis/RedisConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pengyipeng/education/util/addCourseByRedis/RedisUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/controller/Searchcourse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/controller/Searchcourse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/mapper/SearchcourseDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/mapper/SearchcourseDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/model/entity/Project.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/model/entity/Project.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/service/SearchCourseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/service/SearchCourseService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/service/impl/SearchCourseServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/service/impl/SearchCourseServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/util/RedisConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/util/RedisUtils$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/util/RedisUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pengyipeng/education/util/swagger/swagger/SwaggerConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mappers/Mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mappers/Mapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mappers/StudentManagerMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mappers/StudentManagerMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mappers/TeacherMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mappers/TeacherMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/coursemanage.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/coursemanage.ftl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +140,13 @@
         <item name="education_text@122.51.168.40" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="education_text: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="course_applyphase: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="education_text@122.51.168.40" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="education_text: schema" type="76f4a085:MysqlImplModel$Schema" />
         <item name="course_project: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
       <path>
@@ -57,27 +155,6 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="education_text: schema" type="76f4a085:MysqlImplModel$Schema" />
         <item name="course_student: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="education_text@122.51.168.40" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="education_text: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="project: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="education_text@122.51.168.40" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="education_text: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="student_management: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="education_text@122.51.168.40" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="education_text: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="teacher_manage: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -98,9 +175,9 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="localRepository" value="D:\maven\repository" />
-        <option name="mavenHome" value="D:/maven/apache-maven-3.6.3" />
-        <option name="userSettingsFile" value="D:\maven\apache-maven-3.6.3\conf\settings.xml" />
+        <option name="localRepository" value="E:\M2\m2\repository" />
+        <option name="mavenHome" value="E:/MAVEN/apache-maven-3.6.1" />
+        <option name="userSettingsFile" value="E:\MAVEN\apache-maven-3.6.1\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
     <option name="importingSettings">
@@ -110,9 +187,7 @@
     </option>
   </component>
   <component name="ProjectId" id="1Vv4QrQW5I5PwHXrY2ZZstBTNv7" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="compactDirectories" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -120,7 +195,6 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
@@ -131,31 +205,16 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1578298540039" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/pengyipeng/education/service/impl" />
-    <property name="project.structure.last.edited" value="Problems" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.pengyipeng.education.model.vo" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\github\education_git\src\main\java\com\pengyipeng\education\service\impl" />
-      <recent name="D:\github\education_git\src\main\java\com\pengyipeng\education\service" />
-      <recent name="D:\github\education_git\src\main\resources\mappers" />
-      <recent name="D:\github\education_git\src\main\java\com\pengyipeng\education\mapper" />
-      <recent name="D:\github\education_git\src\main\java\com\pengyipeng\education\controller" />
-    </key>
   </component>
   <component name="RunManager">
     <configuration name="EducationApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="education" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.pengyipeng.education.EducationApplication" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -165,7 +224,6 @@
     <option name="viewStates">
       <list>
         <serviceView>
-          <option name="contentProportion" value="0.14772727" />
           <treeState>
             <expand />
             <select />
@@ -173,10 +231,6 @@
         </serviceView>
       </list>
     </option>
-  </component>
-  <component name="SshConsoleOptionsProvider">
-    <option name="myEncoding" value="UTF-8" />
-    <option name="myConnectionType" value="NONE" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -196,7 +250,7 @@
       <workItem from="1578461421928" duration="2046000" />
       <workItem from="1578464017590" duration="642000" />
       <workItem from="1578464668139" duration="1992000" />
-      <workItem from="1578485132579" duration="368000" />
+      <workItem from="1578556940967" duration="318000" />
     </task>
     <task id="LOCAL-00001" summary="刘千测试">
       <created>1578298085858</created>
@@ -247,91 +301,68 @@
       <option name="project" value="LOCAL" />
       <updated>1578466069516</updated>
     </task>
-    <task id="LOCAL-00008" summary="gxl测试">
-      <created>1578484798004</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1578484798004</updated>
-    </task>
-    <task id="LOCAL-00009" summary="gxl测试">
-      <created>1578485265540</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1578485265540</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="刘千测试" />
     <MESSAGE value="郭新龙测试" />
     <MESSAGE value="gxl测试" />
     <option name="LAST_COMMIT_MESSAGE" value="gxl测试" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578483577648">
+    <state x="414" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578461529159">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578483577648" />
-    <state x="765" y="213" key="#com.intellij.ide.util.MemberChooser" timestamp="1578482559410">
+    <state x="414" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578461529159" />
+    <state x="690" y="271" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1578557012989">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="690" y="271" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1578557012989" />
+    <state x="562" y="115" key="CommitChangelistDialog2" timestamp="1578466912780">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="213" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1578482559410" />
-    <state x="574" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1578482996603">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="562" y="115" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1578466912780" />
+    <state x="740" y="265" key="FileChooserDialogImpl" timestamp="1578556976358">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="574" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578482996603" />
-    <state x="690" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1578483354220">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="1225" y="245" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1578307687142" />
+    <state x="740" y="265" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1578556976358" />
+    <state width="1722" height="263" key="GridCell.Tab.0.bottom" timestamp="1578557209771">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="690" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578483354220" />
-    <state x="562" y="115" key="CommitChangelistDialog2" timestamp="1578485263703">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1722" height="263" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1578557209771" />
+    <state width="1722" height="263" key="GridCell.Tab.0.center" timestamp="1578557209770">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="562" y="115" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1578485263703" />
-    <state x="1225" y="245" key="FileChooserDialogImpl" timestamp="1578480674298">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1722" height="263" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1578557209770" />
+    <state width="1722" height="263" key="GridCell.Tab.0.left" timestamp="1578557209770">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="1225" y="245" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1578480674298" />
-    <state x="740" y="265" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1578120490886" />
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1578485504232">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1722" height="263" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1578557209770" />
+    <state width="1722" height="263" key="GridCell.Tab.0.right" timestamp="1578557209770">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578485504232" />
-    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1578485504232">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1722" height="263" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1578557209770" />
+    <state width="1722" height="263" key="GridCell.Tab.1.bottom" timestamp="1578557209771">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578485504232" />
-    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1578485504232">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1722" height="263" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1578557209771" />
+    <state width="1722" height="263" key="GridCell.Tab.1.center" timestamp="1578557209771">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578485504232" />
-    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1578485504232">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1722" height="263" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1578557209771" />
+    <state width="1722" height="263" key="GridCell.Tab.1.left" timestamp="1578557209771">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578485504232" />
-    <state width="1877" height="281" key="GridCell.Tab.1.bottom" timestamp="1578485504232">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1722" height="263" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1578557209771" />
+    <state width="1722" height="263" key="GridCell.Tab.1.right" timestamp="1578557209771">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578485504232" />
-    <state width="1877" height="281" key="GridCell.Tab.1.center" timestamp="1578485504232">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="281" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578485504232" />
-    <state width="1877" height="281" key="GridCell.Tab.1.left" timestamp="1578485504232">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="281" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578485504232" />
-    <state width="1877" height="281" key="GridCell.Tab.1.right" timestamp="1578485504232">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="281" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578485504232" />
+    <state width="1722" height="263" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1578557209771" />
     <state x="490" y="178" key="Maven.ArtifactSearchDialog" timestamp="1578307748541">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -340,23 +371,23 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="184" y="92" key="MergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578466843522" />
-    <state x="220" y="235" width="1118" height="569" key="MultipleFileMergeDialog" timestamp="1578484775988">
+    <state x="220" y="235" width="1118" height="569" key="MultipleFileMergeDialog" timestamp="1578466859452">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="220" y="235" width="1118" height="569" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578484775988" />
-    <state x="461" y="164" key="SettingsEditor" timestamp="1578483837437">
+    <state x="220" y="235" width="1118" height="569" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578466859452" />
+    <state x="461" y="166" key="SettingsEditor" timestamp="1578556987461">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1578463555865" />
+    <state x="461" y="166" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1578556987461" />
+    <state x="552" y="256" key="Vcs.Push.Dialog.v2" timestamp="1578372744213">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1578483837437" />
-    <state x="461" y="166" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1578120253256" />
-    <state x="552" y="256" key="Vcs.Push.Dialog.v2" timestamp="1578485276617">
+    <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1578372744213" />
+    <state x="744" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578466873314">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1578485276617" />
-    <state x="744" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578485554525">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="744" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1578485554525" />
+    <state x="744" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1578466873314" />
     <state x="334" y="223" key="new project wizard" timestamp="1578446758596">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -365,5 +396,16 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1578464632277" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/pengyipeng/education/controller/UserController.java</url>
+          <line>59</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

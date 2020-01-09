@@ -1,5 +1,6 @@
 package com.pengyipeng.education.model.entity;
 
+//<<<<<<< Updated upstream
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
