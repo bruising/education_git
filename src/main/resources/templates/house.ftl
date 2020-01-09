@@ -9,7 +9,7 @@
 	</head>
 	
 	<body>
-		<form action="/shangchuan" method="post" enctype="multipart/form-data">
+		<form action="/fileUpload" method="post" enctype="multipart/form-data">
 			<input type="file" name="file">
 			<input type="submit">
 		</form>
