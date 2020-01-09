@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pengyipeng.education.mapper.AddCourseDao">
+
+    <select id="getProject" resultType="com.pengyipeng.education.model.entity.Project">
+        select * from project p  where 1=1
+        <if test="pname!=null and pname!=''">
+            and  p.name like "%"#{pname}"%"
+        </if>
+    </select>
+    <select id="getApply_phase" resultType="com.pengyipeng.education.model.entity.Apply_Phase">
+        select * from apply_phase
+    </select>
+    <select id="getTeacher" resultType="com.pengyipeng.education.model.entity.Teacher">
+        select * from teacher_manage where 1=1
+        <if test="tname!=null and tname!=''">
+            and  tname like "%"#{tname}"%"
+        </if>
+    </select>
+
+    <insert id="addCourse">
+        insert into course values (#{course_id},#{course_name},#{course_price},#{course_status},#{course_sort},
+        #{course_date},#{course_introduce},#{course_cycle},#{course_ability_training},#{course_pic})
+    </insert>
+    <insert id="addCourse_applyphase">
+        insert into course_applyphase values (#{course_applyphase_id},#{course_id},#{apply_phase_id})
+    </insert>
+    <insert id="addCourse_project">
+        insert into course_project values (#{course_project_id},#{couser_id},#{project_id})
+    </insert>
+    <insert id="addCourse_teacher">
+        insert into  course_teacher values (#{course_teacher_id},#{course_id},#{teacher_id});
+    </insert>
+    <select id="selectCourse_sort" resultType="int">
+        select MAX(course_sort) from  course
+    </select>
+</mapper>
