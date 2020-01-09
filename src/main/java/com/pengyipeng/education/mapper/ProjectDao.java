@@ -1,6 +1,7 @@
 package com.pengyipeng.education.mapper;
 
 import com.pengyipeng.education.model.entity.Project;
+import com.pengyipeng.education.model.vo.ProStuUserVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -19,10 +20,16 @@ public interface ProjectDao {
     //查询展示项目
     List<Project> getProgect(@Param("name") String name, @Param("startDate") String startDate, @Param("overDate") String overDate, @Param("flag") Integer flag, @Param("page") Integer page, @Param("limit") Integer limit);
     //查询所需的总数量 （需考虑按条件查询后的）
-    Integer getCount(@Param("name") String name, @Param("startDate") String startDate, @Param("overDate") String overDate, @Param("flag") Integer flag, @Param("page") Integer page, @Param("limit") Integer limit);
+    Integer getCount(@Param("name") String name, @Param("startDate") String startDate, @Param("overDate") String overDate, @Param("flag") Integer flag);
     //修改项目状态（1 显示 -1 隐藏）
     Integer updateFlag(@Param("id") Integer id, @Param("flag") Integer flag);
     //修改项目顺序
     Integer updateShowOrder(@Param("id") Integer id, @Param("showOrder") Integer showOrder);
-    //
+    //按照项目ID查询项目信息
+    List<Project> getProjectById(@Param("id")Integer id);
+    //按学生姓名或无条件 查询学生  （模糊查找）
+    List<ProStuUserVO> getStuUser(@Param("id")Integer id,@Param("sname")String sname,@Param("page") Integer page, @Param("limit") Integer limit);
+    //按学生姓名或无条件 查询学生  （模糊查找）的总数量
+    Integer getStuCount(@Param("id")Integer id,@Param("sname")String sname);
+
 }

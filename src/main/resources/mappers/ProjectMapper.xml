@@ -48,6 +48,48 @@
         update project set show_order=#{showOrder} where id=#{id}
     </update>
 
+    <select id="getProjectById" resultMap="p">
+        SELECT p.project_no,p.`name`,p.intro,count(s.student_id) stu_count FROM project p INNER JOIN project_student s ON p.id=s.project_id AND p.id=#{id} GROUP BY p.id
+    </select>
+
+    <select id="getStuUser" resultType="com.pengyipeng.education.model.vo.ProStuUserVO">
+        SELECT * FROM
+            (SELECT DISTINCT cc.sid,cc.sname,cc.age,cc.phone,cc.nickname,update_project_count AS updateProjectCount FROM
+            (SELECT bb.*,phone,nickname FROM
+            (SELECT aa.*,userid FROM
+            (SELECT sname,sid,age FROM student_management WHERE sid in
+            (SELECT student_id FROM project_student WHERE project_id=#{id}))aa
+            JOIN
+            user_stu_teacher WHERE aa.sid=user_stu_teacher.studentid)bb
+            JOIN
+            user_manage WHERE bb.userid=user_manage.userid)cc
+            JOIN
+            project_student WHERE cc.sid=project_student.student_id)dd
+            <if test="sname!=null and sname!=''">
+                WHERE dd.sname LIKE concat('%',#{sname},'%')
+            </if>
+        limit #{page},#{limit}
+
+    </select>
+
+    <select id="getStuCount" resultType="java.lang.Integer">
+        SELECT count(*) FROM
+        (SELECT DISTINCT cc.sid,cc.sname,cc.age,cc.phone,cc.nickname,update_project_count AS updateProjectCount FROM
+        (SELECT bb.*,phone,nickname FROM
+        (SELECT aa.*,userid FROM
+        (SELECT sname,sid,age FROM student_management WHERE sid in
+        (SELECT student_id FROM project_student WHERE project_id=#{id}))aa
+        JOIN
+        user_stu_teacher WHERE aa.sid=user_stu_teacher.studentid)bb
+        JOIN
+        user_manage WHERE bb.userid=user_manage.userid)cc
+        JOIN
+        project_student WHERE cc.sid=project_student.student_id)dd
+        <if test="sname!=null and sname!=''">
+            WHERE dd.sname LIKE concat('%',#{sname},'%')
+        </if>
+    </select>
+
     <resultMap id="p" type="com.pengyipeng.education.model.entity.Project">
 
             <id property="id" column="id"/>
