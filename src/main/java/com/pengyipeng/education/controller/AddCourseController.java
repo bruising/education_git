@@ -207,10 +207,6 @@ public class AddCourseController {
 //        }
         return result;
     }
-@RequestMapping("/")
-   public String t(){
-        return "house";
-   }
     @RequestMapping(value = "/upload")
     @ResponseBody
     public void upload(@RequestParam(value = "pcFile")MultipartFile pcFile
