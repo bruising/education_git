@@ -6,7 +6,7 @@ import com.pengyipeng.education.model.entity.Project;
 import com.pengyipeng.education.model.entity.Result;
 import com.pengyipeng.education.model.entity.TeacherManage;
 import com.pengyipeng.education.service.AddCourseService;
-import com.pengyipeng.education.util.addCourseByRedis.RedisUtils;
+import com.pengyipeng.education.util.redis.RedisUtil;
 import io.swagger.annotations.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -33,7 +33,7 @@ public class AddCourseController {
     @Resource
     private AddCourseService addCourseService;
     @Resource
-    private RedisUtils redisUtils;
+    private RedisUtil redisUtils;
 
 
     @ApiOperation(value = "输入课程信息",notes = "对了返回true，错了就返回false")

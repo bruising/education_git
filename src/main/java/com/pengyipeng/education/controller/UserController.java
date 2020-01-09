@@ -1,12 +1,11 @@
 package com.pengyipeng.education.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.pengyipeng.education.model.entity.Result;
 import com.pengyipeng.education.model.entity.User_Manager;
 import com.pengyipeng.education.service.UserService;
 import com.pengyipeng.education.util.MD5;
-import com.pengyipeng.education.util.RedisUtils;
 import com.pengyipeng.education.util.UserAgentUtils;
+import com.pengyipeng.education.util.redis.RedisUtil;
 import cz.mallat.uasparser.UserAgentInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,7 +37,7 @@ public class UserController {
     @Resource
     private UserService userService;
     @Autowired
-    private RedisUtils redisUtils;
+    private RedisUtil redisUtils;
     @RequestMapping("/")
     public String login(){
         return "login";

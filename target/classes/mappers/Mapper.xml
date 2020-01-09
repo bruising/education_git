@@ -28,6 +28,15 @@
     </update>
 
 
+    <select id="checkByOrder" resultType="com.pengyipeng.education.model.entity.Course">
+        select * from course where course_sort =#{sort}
+    </select>
+    
+    <update id="updateBycourseOrder">
+        update course set course_sort = #{sort} where course_id = #{courseid}
+    </update>
+
+
 
 
 </mapper>
