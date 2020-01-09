@@ -2,7 +2,7 @@ package com.pengyipeng.education.service;
 
 import com.pengyipeng.education.model.entity.Apply_Phase;
 import com.pengyipeng.education.model.entity.Project;
-import com.pengyipeng.education.model.entity.Teacher;
+import com.pengyipeng.education.model.entity.TeacherManage;
 
 import java.util.List;
 import java.util.Map;
@@ -31,7 +31,7 @@ public interface AddCourseService {
      * 获取教师信息
      * @return 所有教师信息
      */
-    List<Teacher> getTeacher(String tname);
+    List<TeacherManage> getTeacher(String tname);
 
     /**
      * 添加课程

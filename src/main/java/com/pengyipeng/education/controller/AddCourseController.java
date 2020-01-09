@@ -1,28 +1,22 @@
 package com.pengyipeng.education.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.pengyipeng.education.mapper.AddCourseDao;
 import com.pengyipeng.education.model.entity.Apply_Phase;
 import com.pengyipeng.education.model.entity.Project;
 import com.pengyipeng.education.model.entity.Result;
-import com.pengyipeng.education.model.entity.Teacher;
+import com.pengyipeng.education.model.entity.TeacherManage;
 import com.pengyipeng.education.service.AddCourseService;
 import com.pengyipeng.education.util.addCourseByRedis.RedisUtils;
 import io.swagger.annotations.*;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author 李陈
@@ -188,7 +182,7 @@ public class AddCourseController {
     @PostMapping (value = "/getTeacher")
     @ResponseBody
     public Result getTeacher(@RequestParam("teacher_name") String tname){
-        List<Teacher> list=addCourseService.getTeacher(tname);
+        List<TeacherManage> list=addCourseService.getTeacher(tname);
         String result1= JSON.toJSONString(list);
         Result result=new Result();
         result.setCode(200);

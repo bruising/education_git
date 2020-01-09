@@ -3,7 +3,7 @@ package com.pengyipeng.education.service.impl;
 import com.pengyipeng.education.mapper.AddCourseDao;
 import com.pengyipeng.education.model.entity.Apply_Phase;
 import com.pengyipeng.education.model.entity.Project;
-import com.pengyipeng.education.model.entity.Teacher;
+import com.pengyipeng.education.model.entity.TeacherManage;
 import com.pengyipeng.education.service.AddCourseService;
 import org.springframework.stereotype.Service;
 
@@ -41,8 +41,8 @@ public class AddCourseServiceImpl implements AddCourseService {
     }
 
     @Override
-    public List<Teacher> getTeacher(String tname) {
-        List<Teacher> list=addCourseDao.getTeacher(tname);
+    public List<TeacherManage> getTeacher(String tname) {
+        List<TeacherManage> list=addCourseDao.getTeacher(tname);
         if (list!=null&& list.size()>0) {
             return list;
         }

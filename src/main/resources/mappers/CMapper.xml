@@ -11,7 +11,7 @@
     <select id="getApply_phase" resultType="com.pengyipeng.education.model.entity.Apply_Phase">
         select * from apply_phase
     </select>
-    <select id="getTeacher" resultType="com.pengyipeng.education.model.entity.Teacher">
+    <select id="getTeacher" resultType="com.pengyipeng.education.model.entity.TeacherManage">
         select * from teacher_manage where 1=1
         <if test="tname!=null and tname!=''">
             and  tname like "%"#{tname}"%"
