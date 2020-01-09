@@ -24,4 +24,9 @@ public class StudentServiceImpl implements StudentService {
     public StudentVo checkStuByUserId(int userid) {
         return stud.checkStuByUserId(userid);
     }
+
+    @Override
+    public int updateInfo(StudentVo studentVo) {
+        return stud.updateInfo(studentVo);
+    }
 }

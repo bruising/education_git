@@ -16,4 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public interface StudentDao {
     StudentVo checkStuByUserId(@Param("userid") int userid);
 
+    int updateInfo(StudentVo studentVo);
+
 }
