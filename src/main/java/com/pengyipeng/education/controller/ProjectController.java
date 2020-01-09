@@ -3,6 +3,8 @@ package com.pengyipeng.education.controller;
 import com.alibaba.fastjson.JSON;
 import com.pengyipeng.education.model.entity.Message;
 import com.pengyipeng.education.model.entity.Project;
+import com.pengyipeng.education.model.vo.ProStuUserMesVO;
+import com.pengyipeng.education.model.vo.ProStuUserVO;
 import com.pengyipeng.education.model.vo.ProjectVO;
 import com.pengyipeng.education.service.ProjectDaoService;
 import io.swagger.annotations.Api;
@@ -13,8 +15,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
+/**
+ * @Author: Niuys
+ * @Date: ${DATE} ${TIME}
+ * @Describe:
+ */
 @RestController
 @Api(tags = "牛岩松")
 public class ProjectController {
@@ -30,11 +38,16 @@ public class ProjectController {
         System.out.println(flag);
         Message message = new Message();
         List<Project>list=projectDaoService.getProgect(name, startDate, overDate, flag, page, limit);
-        Integer count=projectDaoService.getCount(name, startDate, overDate, flag, page, limit);
+        Integer count=projectDaoService.getCount(name, startDate, overDate, flag);
         ProjectVO projectVO=new ProjectVO(list,count,0,"");
 
         return JSON.toJSONString(projectVO);
     }
+    @ApiOperation(value = "修改项目状态",notes="返回字符串")
+    @ApiResponses({
+            @ApiResponse(code = 120,message = "失败"),
+            @ApiResponse(code = 110,message = "成功")
+    })
     @RequestMapping(value = "/updateFlag")
     public Message updateFlag(Integer id,Integer flag){
         Message message = new Message();
@@ -48,6 +61,11 @@ public class ProjectController {
         }
         return message;
     }
+    @ApiOperation(value = "修改项目顺序",notes="返回字符串")
+    @ApiResponses({
+            @ApiResponse(code = 120,message = "失败"),
+            @ApiResponse(code = 110,message = "成功")
+    })
     @RequestMapping(value = "updateShowOrder")
     public Message updateShowOrder(Integer showOrder,Integer id){
         Message message = new Message();
@@ -59,6 +77,21 @@ public class ProjectController {
             message.setMsg("修改失败");
         }
         return message;
+    }
+    @ApiOperation(value = "按 项目ID 查询 项目信息 ",notes="项目数据")
+    @RequestMapping(value = "getProjectById")
+    public String getProjectById(Integer id, HttpServletRequest request){
+        List<Project>list=projectDaoService.getProjectById(id);
+
+        return JSON.toJSONString(list);
+    }
+    @ApiOperation(value = "按学生姓名或无条件查询学生 ",notes="返回该项目报名学生信息")
+    @RequestMapping(value = "getStuUser")
+    public String getStuUser(Integer id,String sname,Integer page,Integer limit){
+        List<ProStuUserVO>list=projectDaoService.getStuUser(id, sname,page,limit);
+        Integer count = projectDaoService.getStuCount(id, sname);
+        ProStuUserMesVO proStuUserMesVO = new ProStuUserMesVO(list,count,0,"");
+        return JSON.toJSONString(proStuUserMesVO);
     }
 
 }
