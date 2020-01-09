@@ -266,7 +266,7 @@ public class AddCourseController {
             System.out.println(url);
 
             result.setCode(200);
-            result.setMessage("老师信息");
+            result.setMessage("上传路径信息");
             result.setData(url);
 
         } catch (IOException e) {
