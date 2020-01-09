@@ -1,5 +1,6 @@
 package com.pengyipeng.education.model.entity;
 
+//<<<<<<< Updated upstream
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,6 +26,5 @@ public class Project {
     private Integer flag;//状态 1-显示 -1隐藏
     private Date createDate;//创建时间
     private Integer showOrder;//显示顺序
-
 
 }

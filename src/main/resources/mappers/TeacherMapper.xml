@@ -23,7 +23,7 @@
         <if test="tid!=null and tid!=''">
             AND t.tid = #{tid}
         </if>
-        GROUP BY u.userid
+        GROUP BY ut.id
     </select>
 
     <update id="updateTeacherStatus">
@@ -48,7 +48,7 @@
     <insert id="insertTeacherAndUser">
         INSERT INTO user_stu_teacher (userid, teacherid)
         SELECT #{userId}, #{tid}
-        WHERE EXISTS (SELECT userid FROM teacher_manage WHERE email = #{email} AND phone = #{phone})
+        WHERE EXISTS (SELECT userid FROM user_manage WHERE email = #{email} AND phone = #{phone})
     </insert>
 
     <resultMap id="teacherVo" type="com.pengyipeng.education.model.vo.TeacherVo">

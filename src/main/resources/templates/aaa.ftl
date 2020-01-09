@@ -5,10 +5,10 @@
 		<title>北京租房网</title>
 	  
 		<meta charset="utf-8">
-	  
+
 	</head>
-	
+
 	<body>
-		<h1>asasdsad</h1>
+	<h1>asasdsad</h1>
 	</body>
 </html>

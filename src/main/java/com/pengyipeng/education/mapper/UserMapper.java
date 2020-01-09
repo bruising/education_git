@@ -12,5 +12,4 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface UserMapper {
-//啦啦啦
 }
