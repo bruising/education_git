@@ -39,7 +39,7 @@ public class TeacherController {
             @ApiImplicitParam(name = "tname", value = "tname", dataType = "String", example = "xx"),
             @ApiImplicitParam(name = "latest_login_time", value = "latest_login_time", dataType = "String", example = "yyyy-MM-dd"),
             @ApiImplicitParam(name = "status", value = "status", dataType = "String", example = "1"),
-            @ApiImplicitParam(name = "tid", value = "tid", dataType = "String", example = "T2940")
+            @ApiImplicitParam(name = "tid", value = "tid", dataType = "String", example = "T2940(详情输入tid)")
     })
     @ApiResponses({
             @ApiResponse(code = 123, message = "未找到符合该条件的信息，或教师暂时没有授课"),
@@ -93,7 +93,6 @@ public class TeacherController {
 
     /**
      * 新建教师
-     * @param tid 教师ID
      * @param phone 手机号
      * @param tname 名字
      * @param photo 头像
