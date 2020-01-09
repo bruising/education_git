@@ -1,29 +1,23 @@
 package com.pengyipeng.education.model.vo;
 
-import com.pengyipeng.education.model.entity.Project;
-
 import java.util.List;
-/**
- * @author niuys
- * @version V1.0
- * @Project: education
- * @Package com.pengyipeng.education.Model
- * @date 2020/1/5 21:28 星期日
- * 项目和学生数量的vo实体类
- */
-public class ProjectVO {
-    private List<Project> data;
+
+public class ProStuUserMesVO {
+    /**
+     * author:niuys
+     * 前端需要这样的结果格式
+     * ProStuUserVO结果加工类
+     */
+    private List<ProStuUserVO> data;
     private Integer count;
     private Integer code;
     private String msg;
 
-
-
-    public List<Project> getData() {
+    public List<ProStuUserVO> getData() {
         return data;
     }
 
-    public void setData(List<Project> data) {
+    public void setData(List<ProStuUserVO> data) {
         this.data = data;
     }
 
@@ -51,13 +45,13 @@ public class ProjectVO {
         this.msg = msg;
     }
 
-    public ProjectVO(List<Project> data, Integer count, Integer code, String msg) {
+    public ProStuUserMesVO() {
+    }
+
+    public ProStuUserMesVO(List<ProStuUserVO> data, Integer count, Integer code, String msg) {
         this.data = data;
         this.count = count;
         this.code = code;
         this.msg = msg;
-    }
-
-    public ProjectVO() {
     }
 }
