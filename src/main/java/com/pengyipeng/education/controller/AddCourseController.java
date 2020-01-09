@@ -7,13 +7,18 @@ import com.pengyipeng.education.model.entity.Result;
 import com.pengyipeng.education.model.entity.TeacherManage;
 import com.pengyipeng.education.service.AddCourseService;
 import com.pengyipeng.education.util.redis.RedisUtil;
+import com.pengyipeng.education.util.qiniu.QNUtil;
+import com.qiniu.http.Response;
 import io.swagger.annotations.*;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -34,7 +39,8 @@ public class AddCourseController {
     private AddCourseService addCourseService;
     @Resource
     private RedisUtil redisUtils;
-
+    @Resource
+    private QNUtil qnUtil;
 
     @ApiOperation(value = "输入课程信息",notes = "对了返回true，错了就返回false")
     @ApiImplicitParams({
@@ -200,5 +206,17 @@ public class AddCourseController {
 //            e.printStackTrace();
 //        }
         return result;
+    }
+    @RequestMapping(value = "/upload")
+    @ResponseBody
+    public void upload(@RequestParam(value = "pcFile")MultipartFile pcFile
+                         ) {
+        try {
+            String url = qnUtil.fileUpload(pcFile.getInputStream(), pcFile.getOriginalFilename());
+            redisUtils.set("course_pic",url);
+            System.out.println(url);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
