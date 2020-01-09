@@ -9,6 +9,6 @@
 	</head>
 	
 	<body>
-		<h1>${fileUploadStatus}</h1>
+		<h1>asasdsad</h1>
 	</body>
 </html>
