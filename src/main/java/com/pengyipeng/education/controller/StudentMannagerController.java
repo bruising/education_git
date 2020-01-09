@@ -137,37 +137,4 @@ public class StudentMannagerController {
         }
         return message;
     }
-    /**
-     *每次报名或保存项目时添加学生
-     */
-    @ApiOperation(value = "输入学生的信息进行添加",notes = "对了就给学生数据，错了就返回字符串")
-    @ApiImplicitParams({
-            //String sname, int age, Date birth
-            @ApiImplicitParam(name = "sname",value = "sname",dataType = "String",example = "丫丫"),
-            @ApiImplicitParam(name = "age",value = "age",dataType = "int",example = "9"),
-            @ApiImplicitParam(name = "birth",value = "birth",dataType = "String",example = "2019-08-17"),
-    })
-    @ApiResponses({
-            @ApiResponse(code = 123,message = "添加失败！"),
-            @ApiResponse(code = 200,message = "添加成功")
-    })
-    @PostMapping(value = "addStudent")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    public Message addStudent(
-            @RequestParam(value = "sname" ,required = false,defaultValue ="")String sname,
-            @RequestParam(value = "age" ,required = false,defaultValue ="")int age,
-            @RequestParam(value = "birth" ,required = false,defaultValue ="")String births
-    )throws Exception{
-        Message message = new Message();
-        Date birth=(new SimpleDateFormat("yyyy-MM-dd")).parse(births);
-        int i=studentManagerService.insertStudent(new StudentMangerVo(sname,age,birth));
-        if (i>0){
-            message.setCode("200");
-            message.setMsg("添加成功");
-        }else {
-            message.setCode("123");
-            message.setMsg("添加失败");
-        }
-        return message;
-    }
 }
