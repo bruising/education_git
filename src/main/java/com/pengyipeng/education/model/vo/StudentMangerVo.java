@@ -1,5 +1,9 @@
 package com.pengyipeng.education.model.vo;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.Date;
 
 /**
@@ -9,7 +13,10 @@ import java.util.Date;
  * @Package com.pengyipeng.education.model.vo
  * @date 2020/1/6 14:03 星期一
  */
-public class StudentManger {
+
+@AllArgsConstructor
+@NoArgsConstructor
+public class StudentMangerVo {
     private int userid;
     private String phone;
     private String nickname;
@@ -17,6 +24,7 @@ public class StudentManger {
     private String sname;
     private int age;
     private Date birth;
+    private Date registration_time;
     private int project_id;
     private int course_id;
 
@@ -76,6 +84,14 @@ public class StudentManger {
         this.birth = birth;
     }
 
+    public Date getRegistration_time() {
+        return registration_time;
+    }
+
+    public void setRegistration_time(Date registration_time) {
+        this.registration_time = registration_time;
+    }
+
     public int getProject_id() {
         return project_id;
     }
@@ -90,5 +106,18 @@ public class StudentManger {
 
     public void setCourse_id(int course_id) {
         this.course_id = course_id;
+    }
+
+    public StudentMangerVo(String phone, String nickname, String payment_status, Date registration_time) {
+        this.phone = phone;
+        this.nickname = nickname;
+        this.payment_status = payment_status;
+        this.registration_time = registration_time;
+    }
+
+    public StudentMangerVo(String sname, int age, Date birth) {
+        this.sname = sname;
+        this.age = age;
+        this.birth = birth;
     }
 }
