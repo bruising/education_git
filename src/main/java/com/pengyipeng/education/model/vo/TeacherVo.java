@@ -12,10 +12,26 @@ import java.util.List;
  */
 public class TeacherVo {
 
-    private Integer status;
-    private String tid, tname, phone, email, info;
+    private Integer status, userid;
+    private String tid, tname, phone, email, info, photo;
     private Date registration_time;
     private List<String> cnames;
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    public Integer getUserid() {
+        return userid;
+    }
+
+    public void setUserid(Integer userid) {
+        this.userid = userid;
+    }
 
     public String getInfo() {
         return info;
@@ -79,5 +95,21 @@ public class TeacherVo {
 
     public void setCnames(List<String> cnames) {
         this.cnames = cnames;
+    }
+
+    public TeacherVo(Integer status, Integer userid, String tid, String tname, String phone, String email, String info, String photo, Date registration_time, List<String> cnames) {
+        this.status = status;
+        this.userid = userid;
+        this.tid = tid;
+        this.tname = tname;
+        this.phone = phone;
+        this.email = email;
+        this.info = info;
+        this.photo = photo;
+        this.registration_time = registration_time;
+        this.cnames = cnames;
+    }
+
+    public TeacherVo() {
     }
 }

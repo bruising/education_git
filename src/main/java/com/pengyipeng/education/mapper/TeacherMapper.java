@@ -1,5 +1,7 @@
 package com.pengyipeng.education.mapper;
 
+import com.pengyipeng.education.model.entity.TeacherManage;
+import com.pengyipeng.education.model.vo.TeacherUserVo;
 import com.pengyipeng.education.model.vo.TeacherVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -35,9 +37,16 @@ public interface TeacherMapper {
      * 确认登录账号是否存在
      * @param email 登录账号
      * @param phone 手机号
-     * @return 用户ID
+     * @return 用户信息
      */
-    int selectUserIsExist(@Param("email") String email, @Param("phone") String phone);
+    TeacherUserVo selectUserIsExist(@Param("email") String email, @Param("phone") String phone);
+
+    /**
+     * 确认教师ID是否存在
+     * @param tid 教师ID
+     * @return 教师信息
+     */
+    TeacherManage selectTeacherIsExist(@Param("tid") String tid);
 
     /**
      * 新增教师头像
@@ -59,4 +68,18 @@ public interface TeacherMapper {
      * @return 新增结果
      */
     int insertTeacherAndUser(Map<String, Object> map);
+
+    /**
+     * 修改教师头像
+     * @param map 教师信息
+     * @return 修改结果
+     */
+    int updateTeacherPhoto(Map<String, Object> map);
+
+    /**
+     * 修改教师
+     * @param map 教师信息
+     * @return 修改结果
+     */
+    int updateTeacher(Map<String, Object> map);
 }
