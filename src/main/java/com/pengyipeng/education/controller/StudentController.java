@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.google.gson.Gson;
 import com.pengyipeng.education.model.entity.Result;
 import com.pengyipeng.education.model.vo.StudentVo;
+import com.pengyipeng.education.service.QNService;
 import com.pengyipeng.education.service.StudentService;
 import com.pengyipeng.education.util.qiniu.QNUtil;
 import com.qiniu.common.QiniuException;
@@ -37,6 +38,8 @@ public class StudentController {
     @Value("${qiniu.path}")
     private String path;
 
+    @Resource
+    private QNService qnService;
     @Resource
     private StudentService studentService;
 
@@ -77,34 +80,14 @@ public class StudentController {
             @ApiImplicitParam(name = "file", value = "头像文件", dataType = "file"),
     })
     @PostMapping("/updateInfo")
-    public String update(@RequestParam("file") MultipartFile file, StudentVo stu,Model model){
-        QNUtil qnUtil = new QNUtil();
-
+    public String update(@RequestParam("file") MultipartFile file, StudentVo stu,Model model) throws  Exception{
         int userid=stu.getUserid();
-        /*
-        Response response= null;
-        try {
-            // 获取七牛上传后的响应
-            response = qnUtil.uploadFile(file.getInputStream(), file.getOriginalFilename());
-            // 将响应进行gson转码
-            DefaultPutRet putRet=new Gson().fromJson(response.bodyString(),DefaultPutRet.class);
-            // 拼接文件在服务器的路径
-            String url =path+"/"+putRet.key;
-            // 获取响应状态码为200 上传成功
-            stu.setUserPhoto(url);
-            System.out.println(url);
-            if (response.statusCode == 200) {
-                model.addAttribute("fileUploadStatus", "上传成功");
-            } else {
-                model.addAttribute("fileUploadStatus", "失败");
-            }
-        } catch (QiniuException e) {
-            // 获取异常信息原因以及异常状态码
-            model.addAttribute(e.error(), e.code());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
-
+        Response response=qnService.uploadFile(file.getInputStream());
+        DefaultPutRet putRet=new Gson().fromJson(response.bodyString(),DefaultPutRet.class);
+        String url =path+"/"+putRet.key;
+        stu.setUserPhoto(url);
+        model.addAttribute("url",url);
+        System.out.println(url);
         studentService.updateInfo(stu);
         return "redirect:checkStuByUserId?userid="+userid;
     }
