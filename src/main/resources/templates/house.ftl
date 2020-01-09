@@ -5,12 +5,12 @@
 		<title>北京租房网</title>
 	  
 		<meta charset="utf-8">
-	  
+		<meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8" />
 	</head>
 	
 	<body>
-		<form action="/fileUpload" method="post" enctype="multipart/form-data">
-			<input type="file" name="file">
+		<form action="/upload" method="post" enctype="multipart/form-data">
+			<input type="file" name="pcFile">
 			<input type="submit">
 		</form>
 	</body>

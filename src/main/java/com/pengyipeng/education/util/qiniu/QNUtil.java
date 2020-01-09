@@ -1,9 +1,11 @@
 package com.pengyipeng.education.util.qiniu;
 
+import com.google.gson.Gson;
 import com.qiniu.common.QiniuException;
 import com.qiniu.http.Response;
 import com.qiniu.storage.BucketManager;
 import com.qiniu.storage.UploadManager;
+import com.qiniu.storage.model.DefaultPutRet;
 import com.qiniu.util.Auth;
 import com.qiniu.util.StringMap;
 import org.springframework.beans.factory.InitializingBean;
@@ -11,6 +13,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 
 /**
@@ -55,6 +59,9 @@ public class QNUtil implements InitializingBean {
      */
     private StringMap putPolicy;
 
+    @Value("${qiniu.path}")
+    private String path;
+
     /**
      * 上传文件
      * @param inputStream   文件输入流
@@ -81,20 +88,20 @@ public class QNUtil implements InitializingBean {
      *              code() 错误的状态码
      *          等
      */
-    public Response uploadFile(InputStream inputStream, String fileName) throws QiniuException {
-        // 七牛云的相应信息，
-        // 参数（承载文件的输入流， 上传到服务器的文件名， 回传信息）
-        Response response = uploadManager.put(inputStream, fileName, getToken(fileName), null, null);
-        // 尝试次数
-        int tryTimes = 0;
-        // needRetry()需要尝试
-        while (response.needRetry() && tryTimes < 3) {
-            response = uploadManager.put(inputStream, fileName, getToken(fileName), null, null);
-            tryTimes++;
-        }
-        // 返回上传后的相应信息
-        return response;
-    }
+//    public Response uploadFile(InputStream inputStream, String fileName) throws QiniuException {
+//        // 七牛云的相应信息，
+//        // 参数（承载文件的输入流， 上传到服务器的文件名， 回传信息）
+//        Response response = uploadManager.put(inputStream, fileName, getToken(fileName), null, null);
+//        // 尝试次数
+//        int tryTimes = 0;
+//        // needRetry()需要尝试
+//        while (response.needRetry() && tryTimes < 3) {
+//            response = uploadManager.put(inputStream, fileName, getToken(fileName), null, null);
+//            tryTimes++;
+//        }
+//        // 返回上传后的相应信息
+//        return response;
+//    }
 
     @Override
     public void afterPropertiesSet() {
@@ -104,5 +111,41 @@ public class QNUtil implements InitializingBean {
 
     private String getToken(String fileName) {
         return this.auth.uploadToken("object--store", fileName, 3600, putPolicy);
+    }
+
+    /**
+     * 上传文件
+     * @param inputStream  承载文件的输入流
+     * @param fileName     文件名
+     * @return
+     */
+    public String fileUpload(InputStream inputStream, String fileName){
+        try {
+            // 七牛云的相应信息，
+            // 参数（承载文件的输入流， 上传到服务器的文件名， 回传信息）
+            Response response = uploadManager.put(inputStream, fileName, getToken(fileName), null, null);
+            // 尝试次数
+            int tryTimes = 0;
+            // needRetry()需要尝试
+            while (response.needRetry() && tryTimes < 3) {
+                response = uploadManager.put(inputStream, fileName, getToken(fileName), null, null);
+                tryTimes++;
+            }
+            // 将响应进行gson转码
+            DefaultPutRet putRet=new Gson().fromJson(response.bodyString(),DefaultPutRet.class);
+            // 拼接文件在服务器的路径
+            String url =path+"/"+putRet.key;
+            // 获取响应状态码为200 上传成功
+            if (response.statusCode == 200) {
+                return url;
+            } else {
+                return "filed";
+            }
+        } catch (QiniuException e) {
+            return e.code() + e.error();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
