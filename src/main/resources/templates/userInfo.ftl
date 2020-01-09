@@ -49,7 +49,7 @@
 <body>
     <div id="bdiv">
         <br>
-        <p align="right"><span id="btnspan"><button class="button">退出</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="button">编辑</button></span></p>
+        <p align="right"><span id="btnspan"><a href=""><button class="button">退出</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="checkStuByUserId?mark=update"><button class="button">编辑</button></a></span></p>
         <br><br><br><br>
         <form>
             <table align="center">

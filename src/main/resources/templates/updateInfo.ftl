@@ -49,7 +49,7 @@
 <body>
     <div id="bdiv">
         <br>
-        <p align="right"><span id="btnspan"><a href=""><button class="button">退出</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="checkStuByUserId?mark=update"><button class="button">编辑</button></a></span></p>
+        <p align="right"><span id="btnspan"><a href=""><button class="button">退出</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="checkStuByUserId"><button class="button">保存</button></a></span></p>
         <br><br><br><br>
         <form>
             <table align="center">
@@ -64,13 +64,15 @@
                 </tr>
                 <tr><td><br></td></tr>
                 <tr>
-                    <td>手机号</td>&nbsp;&nbsp;&nbsp;<a href="">修改手机号</a>
+                    <td>手机号</td>
                     <td>${user.phone!}</td>
+                    <td><a href="">修改手机号</a></td>
                 </tr>
                 <tr><td><br></td></tr>
                 <tr>
-                    <td>邮箱</td>&nbsp;&nbsp;&nbsp;<a href="">修改邮箱</a>
+                    <td>邮箱</td>
                     <td>${user.email!}</td>
+                    <td><a href="">修改邮箱</a></td>
                 </tr>
             </table>
         </form>

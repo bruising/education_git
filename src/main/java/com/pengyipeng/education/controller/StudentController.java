@@ -30,10 +30,14 @@ public class StudentController {
      * @return
      */
     @RequestMapping(value = "/checkStuByUserId")
-    public String checkStuByUserId(@RequestParam(value = "userid",defaultValue = "2")int userid, Model model){
+    public String checkStuByUserId(@RequestParam(value = "mark",required = false,defaultValue = "show")String mark,@RequestParam(value = "userid",defaultValue = "2")int userid, Model model){
         StudentVo studentVo=studentService.checkStuByUserId(userid);
         model.addAttribute("user",studentVo);
         System.out.println(studentVo.getUserPhoto());
-        return "userInfo";
+        if("update".equals(mark)){
+            return "updateInfo";
+        }else {
+            return "userinfo";
+        }
     }
 }
