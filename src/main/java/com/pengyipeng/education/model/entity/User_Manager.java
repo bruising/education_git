@@ -37,6 +37,10 @@ public class User_Manager {
     private String registration_time;
     //md5加密密码
     private String md5pwd;
+    //用户区别
+    private int  usertype;
+    //用户对象
+    private List<StudentManagement>studentManagements;
     //用户状态
     private int userstatus;
 
