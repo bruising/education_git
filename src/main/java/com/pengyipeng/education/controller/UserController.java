@@ -58,7 +58,7 @@ public class UserController {
             return "login";
         }else{
             User_Manager user=( User_Manager)loginResult[0];
-            int status=user.getPayment_status();
+            int status=user.getUserstatus();
             if(1==status){
                 return "#1";
             }else if(2==status){

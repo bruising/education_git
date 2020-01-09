@@ -37,6 +37,16 @@ public class User_Manager {
     private String registration_time;
     //md5加密密码
     private String md5pwd;
+    //用户状态
+    private int userstatus;
+
+    public int getUserstatus() {
+        return userstatus;
+    }
+
+    public void setUserstatus(int userstatus) {
+        this.userstatus = userstatus;
+    }
 
     public String getMd5pwd() {
         return md5pwd;
