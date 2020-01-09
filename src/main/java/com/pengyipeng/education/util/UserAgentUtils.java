@@ -1,11 +1,11 @@
-package com.example.demo.utils;
+package com.pengyipeng.education.util;
 
 import cz.mallat.uasparser.OnlineUpdater;
 import cz.mallat.uasparser.UASparser;
 import cz.mallat.uasparser.UserAgentInfo;
 
-import java.io.IOError;
 import java.io.IOException;
+
 /**
  * @author 吕继伟
  * @version V1.0
@@ -13,7 +13,7 @@ import java.io.IOException;
  * @Package com.example.demo.entity
  * @date 2020/1/6 12:14 星期一
  */
-public class UserAgentUtils {
+public class  UserAgentUtils {
 
     public static UASparser uaSparser=null;
 

@@ -1,4 +1,4 @@
-package com.example.demo.utils;
+package com.pengyipeng.education.util;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.connection.RedisConnection;
@@ -9,6 +9,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+
 /**
  * @author 吕继伟
  * @version V1.0
@@ -96,6 +97,7 @@ public class RedisUtils {
 
     public boolean exists(String key){
         redisTemplate.setKeySerializer(new StringRedisSerializer());
+        redisTemplate.setValueSerializer(new StringRedisSerializer());
         ValueOperations<String,Object> vo=redisTemplate.opsForValue();
         Object value=vo.get(key);
         if (value==null||value==""){

@@ -1,7 +1,8 @@
-package com.example.demo.utils;
+package com.pengyipeng.education.util;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+
 /**
  * @author 吕继伟
  * @version V1.0
@@ -38,10 +39,7 @@ public class  MD5 {
         }
     }
 
-    public static void main(String[] args) {
-        String s=MD5.getMD5("mazepeng",16);
-        System.out.println(s);
-    }
+
 
 
 }

@@ -2,6 +2,26 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.pengyipeng.education.mapper.UserMapper">
+<mapper namespace="com.pengyipeng.education.mapper.User_MapperDao">
+        <select id="getUser" resultType="com.pengyipeng.education.model.entity.User_Manager">
+            select  *from  user_manage where userid=#{userid}
+             <if test="pwd!=null and pwd!='' and pwd.length()!=32">
+                 and pwd=#{pwd}
+             </if>
+             <if test="pwd!=null and pwd!='' and pwd.length()==32">
+                 and md5pwd=#{pwd}
+             </if>
 
+
+        </select>
+
+    <update id="updateUser">
+        update user_manage set md5pwd=#{md5pwd}  where userid=#{userid}
+    </update>
+    <select id="getMd5pwd"  resultType="String">
+        select md5pwd from user_manage where userid=#{userid};
+    </select>
+    <select id="getpwd"  resultType="String">
+        select pwd from user_manage where userid=#{userid};
+    </select>
 </mapper>
