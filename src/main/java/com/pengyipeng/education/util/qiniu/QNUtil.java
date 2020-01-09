@@ -8,6 +8,7 @@ import com.qiniu.util.Auth;
 import com.qiniu.util.StringMap;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.io.InputStream;
@@ -21,6 +22,7 @@ import java.io.InputStream;
  *               在Controller层实例此对象进行方法调用
  * @date 2020 年 01 月 08 13:13 星期三
  */
+@Component
 public class QNUtil implements InitializingBean {
 
     /**
@@ -95,12 +97,12 @@ public class QNUtil implements InitializingBean {
     }
 
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet() {
         this.putPolicy = new StringMap();
         putPolicy.put("returnBody", "{\"key\":\"$(key)\",\"hash\":\"$(etag)\",\"bucket\":\"$(bucket)\",\"fsize\":$(fsize)}");
     }
 
     private String getToken(String fileName) {
-        return this.auth.uploadToken(bucket, fileName, 3600, putPolicy);
+        return this.auth.uploadToken("object--store", fileName, 3600, putPolicy);
     }
 }

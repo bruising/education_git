@@ -9,9 +9,6 @@
 	</head>
 	
 	<body>
-		<form action="/shangchuan" method="post" enctype="multipart/form-data">
-			<input type="file" name="file">
-			<input type="submit">
-		</form>
+		<h1>${fileUploadStatus}</h1>
 	</body>
 </html>
