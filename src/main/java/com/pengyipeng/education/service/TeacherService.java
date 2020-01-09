@@ -36,4 +36,11 @@ public interface TeacherService {
      * @return 新增结果
      */
     Result addTeacher(Map<String, Object> map);
+
+    /**
+     * 修改教师
+     * @param map 教师信息
+     * @return 修改结果
+     */
+    Result updateTeacherInfo(Map<String, Object> map);
 }

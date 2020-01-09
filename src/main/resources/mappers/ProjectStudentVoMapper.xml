@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pengyipeng.education.mapper.ProjectStudentVoDao">
+    <select id="getProject" resultMap="ss">
+        select um.`userid`,
+        um.`user_photo`,
+        ps.`project_progress`,
+        p.`name`,
+        p.`img`,
+        p.`create_date`,
+        c.`course_name`
+        from user_manage um,
+        user_stu_teacher ush,
+        project_student ps
+        ,project p,
+        course_project cp,
+        course c
+        where um.`userid`=ush.`userid`
+        and ps.`student_id`=ush.`studentid`
+        and ps.`project_id`=p.`id`
+        and p.`id`=cp.`project_id`
+        and cp.`course_id`=c.`course_id`
+        and ush.`studentid`=#{studenrId}
+    </select>
+
+    <resultMap id="ss" type="com.pengyipeng.education.model.vo.ProjectStudentVo">
+        <id property="userid" column="userid"/>
+        <result property="userPhoto" column="user_photo"/>
+        <result property="pProgress" column="project_progress"/>
+        <result property="name" column="name"/>
+        <result property="img" column="img"/>
+        <result property="createDate" column="create_date"/>
+        <result property="courseName" column="course_name"/>
+    </resultMap>
+
+</mapper>

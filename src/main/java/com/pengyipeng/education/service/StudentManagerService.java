@@ -26,8 +26,5 @@ public interface StudentManagerService {
      *查询该学生报名课程
      */
     public List<StudentProjectCourseVo> selectCourseNameBySid(int sid);
-    /**
-     *每次报名或保存项目时添加学生
-     */
-    public int insertStudent(StudentMangerVo studentMangerVo);
+
 }

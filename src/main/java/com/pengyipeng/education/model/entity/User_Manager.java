@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 /**
  * @author 宁坤
  * @version V1.0
@@ -37,6 +39,20 @@ public class User_Manager {
     private String registration_time;
     //md5加密密码
     private String md5pwd;
+    //用户区别
+    private int  usertype;
+    //用户对象
+    private List<StudentManagement> studentManagements;
+    //用户状态
+    private int userstatus;
+
+    public int getUserstatus() {
+        return userstatus;
+    }
+
+    public void setUserstatus(int userstatus) {
+        this.userstatus = userstatus;
+    }
 
     public String getMd5pwd() {
         return md5pwd;

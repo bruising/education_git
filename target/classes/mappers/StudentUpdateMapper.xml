@@ -8,4 +8,9 @@
         select um.userid,um.email,um.nickname,um.phone,um.user_photo userPhoto from user_manage um where userid=#{userid}
     </select>
 
+    <update id="updateInfo" parameterType="com.pengyipeng.education.model.vo.StudentVo">
+        update user_manage set user_photo=#{userPhoto},nickname=#{nickname},phone=#{phone},email=#{email}
+        where userid=#{userid}
+    </update>
+
 </mapper>

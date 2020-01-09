@@ -39,10 +39,10 @@ public class TeacherController {
             @ApiImplicitParam(name = "tname", value = "tname", dataType = "String", example = "xx"),
             @ApiImplicitParam(name = "latest_login_time", value = "latest_login_time", dataType = "String", example = "yyyy-MM-dd"),
             @ApiImplicitParam(name = "status", value = "status", dataType = "String", example = "1"),
-            @ApiImplicitParam(name = "tid", value = "tid", dataType = "String", example = "T2940")
+            @ApiImplicitParam(name = "tid", value = "tid", dataType = "String", example = "T2940(详情输入tid)")
     })
     @ApiResponses({
-            @ApiResponse(code = 123, message = "未找到符合该条件的信息"),
+            @ApiResponse(code = 123, message = "未找到符合该条件的信息，或教师暂时没有授课"),
             @ApiResponse(code = 200, message = "找到符合条件的信息")
     })
     @PostMapping(value = "/teacherInfo")
@@ -117,11 +117,11 @@ public class TeacherController {
     })
     @PostMapping(value = "/addTeacher")
     public Result addTeacher(@RequestParam(value = "phone", required = false, defaultValue = "") String phone,
-                           @RequestParam(value = "tname", required = false, defaultValue = "") String tname,
-                           @RequestParam(value = "photo", required = false, defaultValue = "") String photo,
-                           @RequestParam(value = "status", required = false, defaultValue = "0") Integer status,
-                           @RequestParam(value = "email", required = false, defaultValue = "") String email,
-                           @RequestParam(value = "info", required = false, defaultValue = "") String info){
+                             @RequestParam(value = "tname", required = false, defaultValue = "") String tname,
+                             @RequestParam(value = "photo", required = false, defaultValue = "") String photo,
+                             @RequestParam(value = "status", required = false, defaultValue = "0") Integer status,
+                             @RequestParam(value = "email", required = false, defaultValue = "") String email,
+                             @RequestParam(value = "info", required = false, defaultValue = "") String info){
         Map<String, Object> map = new HashMap<>();
         if (photo!=""){
             map.put("photo", photo);
@@ -142,5 +142,60 @@ public class TeacherController {
             map.put("info", info);
         }
         return teacherService.addTeacher(map);
+    }
+
+    /**
+     * 修改教师信息
+     * @param tid 教师ID
+     * @param phone 手机号
+     * @param tname 名字
+     * @param photo 头像
+     * @param status 状态
+     * @param email 登录状态
+     * @param info 教师介绍
+     * @return 修改结果
+     */
+    @ApiOperation(value = "修改教师信息", notes = "成功或失败都有修改的结果，返回提示字符串(如果传入头像则添加，没有则不添加)")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "tid", value = "tid", dataType = "String", example = "T2940"),
+            @ApiImplicitParam(name = "photo", value = "photo", dataType = "String", example = "xxx"),
+            @ApiImplicitParam(name = "tname", value = "tname", dataType = "String", example = "xxx"),
+            @ApiImplicitParam(name = "phone", value = "phone", dataType = "String", example = "13322221111"),
+            @ApiImplicitParam(name = "email", value = "email", dataType = "String", example = "xxx@qq.com(需要传入但不修改----登录账号不能修改)"),
+            @ApiImplicitParam(name = "info", value = "info", dataType = "String", example = "xxx(可以不填)"),
+            @ApiImplicitParam(name = "status", value = "status", dataType = "String", example = "1")
+    })
+    @ApiResponses({
+            @ApiResponse(code = 123, message = "修改失败"),
+            @ApiResponse(code = 200, message = "修改成功")
+    })
+    @PostMapping(value = "/updateTeacherInfo")
+    public Result updateTeacherInfo(@RequestParam(value = "tid", required = false, defaultValue = "") String tid,
+                                    @RequestParam(value = "photo", required = false, defaultValue = "") String photo,
+                                    @RequestParam(value = "email", required = false, defaultValue = "") String email,
+                                    @RequestParam(value = "phone", required = false, defaultValue = "") String phone,
+                                    @RequestParam(value = "status", required = false, defaultValue = "0") Integer status,
+                                    @RequestParam(value = "tname", required = false, defaultValue = "") String tname,
+                                    @RequestParam(value = "info", required = false, defaultValue = "") String info){
+        Map<String, Object> map = new HashMap<String, Object>();
+        if (photo!=""){
+            map.put("photo", photo);
+        }
+        if (email!=""){
+            map.put("email", email);
+        }
+        if (phone!=""){
+            map.put("phone", phone);
+        }
+        if (status>0){
+            map.put("status", status);
+        }
+        if (tname!=""){
+            map.put("tname", tname);
+        }
+        if (info!=""){
+            map.put("info", info);
+        }
+        return teacherService.updateTeacherInfo(map);
     }
 }

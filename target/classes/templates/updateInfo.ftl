@@ -49,33 +49,44 @@
 <body>
     <div id="bdiv">
         <br>
-        <p align="right"><span id="btnspan"><a href=""><button class="button">退出</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="checkStuByUserId"><button class="button">保存</button></a></span></p>
+        <p align="right"><span id="btnspan"><a href="checkStuByUserId?userid=${user.userid}"><button class="button">退出</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<button class="button" id="subt">保存</button></span></p>
         <br><br><br><br>
-        <form>
+        <form action="updateInfo" method="post" enctype="multipart/form-data" id="updateform">
             <table align="center">
+                <input type="hidden" value="${user.userid!}" name="userid">
+                <input type="hidden" value="${user.userPhoto!}" name="userPhoto">
                 <tr>
                     <td>头像</td>
                     <td><img id="tximg" src="${user.userPhoto!}" alt="暂无"></td>
+                    <td><input type="file" name="file"></td>
                 </tr>
                 <tr><td><br></td></tr>
                 <tr>
                     <td>昵称</td>
-                    <td><input value="${user.nickname!}"></td>
+                    <td><input value="${user.nickname!}" name="nickname"></td>
                 </tr>
                 <tr><td><br></td></tr>
                 <tr>
                     <td>手机号</td>
-                    <td>${user.phone!}</td>
+                    <td>${user.phone!}<input type="hidden" value="${user.phone!}" name="phone"></td>
                     <td><a href="">修改手机号</a></td>
                 </tr>
                 <tr><td><br></td></tr>
                 <tr>
                     <td>邮箱</td>
-                    <td>${user.email!}</td>
+                    <td>${user.email!}<input type="hidden" value="${user.email!}" name="email"></td>
                     <td><a href="">修改邮箱</a></td>
                 </tr>
             </table>
         </form>
     </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#subt").click(function () {
+                $("#updateform").submit();
+            })
+        })
+    </script>
 </body>
 </html>
