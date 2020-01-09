@@ -21,7 +21,7 @@ public class QNController {
     @Value("${qiniu.path}")
     private String path;
 
-    @RequestMapping("/")
+    @RequestMapping("/house")
     public String init(){
         return "house";
     }
