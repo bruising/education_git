@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 写sql语句 namespace写接口的位置-->
+<mapper namespace="com.pengyipeng.education.mapper.AddCourseTime">
+
+    <insert id="addCourseTime">
+         insert into class_times (course_id,class_kind,class_name,class_target,class_video_address) VALUES (#{courseId},#{classKind},#{className},#{classTarget},#{classVideoAddress})
+    </insert>
+
+</mapper>
