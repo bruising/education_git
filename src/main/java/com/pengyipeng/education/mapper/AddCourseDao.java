@@ -1,6 +1,7 @@
 package com.pengyipeng.education.mapper;
 
 import com.pengyipeng.education.model.entity.Apply_Phase;
+import com.pengyipeng.education.model.entity.Course;
 import com.pengyipeng.education.model.entity.Project;
 import com.pengyipeng.education.model.entity.TeacherManage;
 import org.apache.ibatis.annotations.Param;
@@ -63,4 +64,6 @@ public interface AddCourseDao {
      * @return
      */
     int selectCourse_sort();
+
+    Course getCourse(@Param("course_id")int course_id);
 }

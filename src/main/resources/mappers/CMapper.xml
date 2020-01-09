@@ -8,6 +8,9 @@
             and  p.name like "%"#{pname}"%"
         </if>
     </select>
+    <select id="getCourse" resultType="com.pengyipeng.education.model.entity.Course">
+        select * from course where course_id=#{course_id}
+    </select>
     <select id="getApply_phase" resultType="com.pengyipeng.education.model.entity.Apply_Phase">
         select * from apply_phase
     </select>

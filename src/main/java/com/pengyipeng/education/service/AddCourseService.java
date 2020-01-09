@@ -1,6 +1,7 @@
 package com.pengyipeng.education.service;
 
 import com.pengyipeng.education.model.entity.Apply_Phase;
+import com.pengyipeng.education.model.entity.Course;
 import com.pengyipeng.education.model.entity.Project;
 import com.pengyipeng.education.model.entity.TeacherManage;
 
@@ -62,4 +63,6 @@ public interface AddCourseService {
      * @return
      */
     int selectCourse_sort();
+
+    int getCourse(int course_id);
 }
