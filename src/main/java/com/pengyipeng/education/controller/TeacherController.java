@@ -196,6 +196,9 @@ public class TeacherController {
         if (info!=""){
             map.put("info", info);
         }
+        if (tid!=""){
+            map.put("tid", tid);
+        }
         return teacherService.updateTeacherInfo(map);
     }
 }
