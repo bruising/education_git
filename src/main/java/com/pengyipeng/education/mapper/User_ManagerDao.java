@@ -47,4 +47,17 @@ public interface User_ManagerDao {
 
     //根据userid获取教师用户的详细信息
     public User_TeacherVo getTeaUserByUserid(@Param("userid") Integer userid);
+
+    //查询总用户数
+    public  int queryAllUserCount();
+
+
+    //查询每天新增用户数
+    public  int   queryAddUserEveryday();
+
+
+    //查询每天新增付费用户数
+    public   int  queryAddPaymentUserCountEveryday();
+    //查询活跃用户数
+    public   int  queryActiveUserCount();
 }

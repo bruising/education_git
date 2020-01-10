@@ -2,6 +2,7 @@ package com.pengyipeng.education.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.pengyipeng.education.model.entity.Result;
+import com.pengyipeng.education.model.entity.UserMangerResult;
 import com.pengyipeng.education.model.entity.User_Manager;
 import com.pengyipeng.education.model.vo.User_TeacherVo;
 import com.pengyipeng.education.service.User_ManagerService;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import javax.jws.WebParam;
 import java.util.List;
 
 /**
@@ -132,4 +134,29 @@ public class User_ManagerController {
         }
         return result;
     }
+
+    @ApiOperation(value = "查询所有用户数 每新增用户数  每天新增付费用户数  活跃用户数")
+
+   @PostMapping("/UserManager")
+    public UserMangerResult UserManager(Model  model){
+        int  AllUserCount=ums.queryAllUserCount();//获取所有得用户数
+        model.addAttribute("AllUserCount",AllUserCount);
+        int  addUserUserCountEveyDay=ums.queryAddUserEveryday();//获取每天得新增用户数
+        model.addAttribute("addUserUserCountEveyDay",addUserUserCountEveyDay);
+
+        int addPaymentUserCountEveryDay=ums.queryAddPaymentUserCountEveryday();//获取每天得新增付费用户数
+        model.addAttribute("addPaymentUserCountEveryDay",addPaymentUserCountEveryDay);
+        int  activeUserCount=ums.queryActiveUserCount();//获取活跃用户数
+        model.addAttribute("activeUserCount",activeUserCount);
+
+        UserMangerResult  result=new UserMangerResult();
+        result.setAllUserCount(AllUserCount);
+        result.setAddUserUserCountEveyDay(addUserUserCountEveyDay);
+        result.setAddPaymentUserCountEveryDay(addPaymentUserCountEveryDay);
+        result.setActiveUserCount(activeUserCount);
+
+        return result;
+    }
+
+
 }
