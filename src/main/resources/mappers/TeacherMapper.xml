@@ -67,7 +67,7 @@
         <if test="photo!=null and photo!=''">
             user_photo = #{photo},
         </if>
-        phone = #{phone} WHERE email = #{email} AND phone = #{phone}
+        phone = #{phone} WHERE email = #{email}
     </update>
 
     <update id="updateTeacher">
