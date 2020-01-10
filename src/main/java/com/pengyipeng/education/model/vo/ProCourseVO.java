@@ -10,17 +10,17 @@ import java.util.List;
  * @Describe: 项目与课程的VO实体类
  */
 public class ProCourseVO {
-    private List<Course> list;
+    private List<Course> data;
     private Integer count;
     private Integer code;
     private String msg;
 
-    public List<Course> getList() {
-        return list;
+    public List<Course> getData() {
+        return data;
     }
 
-    public void setList(List<Course> list) {
-        this.list = list;
+    public void setData(List<Course> data) {
+        this.data = data;
     }
 
     public Integer getCount() {
@@ -47,13 +47,13 @@ public class ProCourseVO {
         this.msg = msg;
     }
 
-    public ProCourseVO() {
-    }
-
-    public ProCourseVO(List<Course> list, Integer count, Integer code, String msg) {
-        this.list = list;
+    public ProCourseVO(List<Course> data, Integer count, Integer code, String msg) {
+        this.data = data;
         this.count = count;
         this.code = code;
         this.msg = msg;
+    }
+
+    public ProCourseVO() {
     }
 }
