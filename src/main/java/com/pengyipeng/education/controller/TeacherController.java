@@ -136,8 +136,10 @@ public class TeacherController {
             MultipartFile photoFile = (MultipartFile)JSON.parse(phone);
             String url = qnUtil.fileUpload(photoFile.getInputStream(), photoFile.getName());
             System.out.println(url);
-            if (!url.equals("failed")){
-                //上传成功，存入数据库（例如添加人物头像时，生成的url要存入数据库，读取时将字符串放入img的src中即可）
+            if (url.equals("failed")){
+                map.put("uploadStatus", "failed");
+            }else {
+                map.put("uploadStatus", "success");
                 map.put("photo", url);
             }
         }

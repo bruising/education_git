@@ -101,13 +101,18 @@ public class TeacherServiceImpl implements TeacherService {
     @Override
     public Result updateTeacherInfo(Map<String, Object> map) {
         Result result = new Result();
+        StringBuilder message = new StringBuilder();
         //修改用户头像、手机号----如果传入头像则修改，没有则只修改手机号
         int a = teacherMapper.updateTeacherPhoto(map);
         //修改教师信息
         int b = teacherMapper.updateTeacher(map);
         if (a>0 && b>0){
+            if (map.get("uploadStatus").toString().equals("failed")){
+                message.append("头像修改失败，");
+            }
+            message.append("修改成功");
             result.setCode(200);
-            result.setMessage("修改成功");
+            result.setMessage(message.toString());
         }else {
             result.setCode(123);
             result.setMessage("修改失败");
