@@ -18,4 +18,8 @@ public interface StudentDao {
 
     int updateInfo(StudentVo studentVo);
 
+    int updatePhone(@Param("userid") int userid,@Param("pwd") String pwd,@Param("newPhone") String newPhone);
+
+    int updateEmail(@Param("userid") int userid,@Param("pwd") String pwd,@Param("newEmail") String newEmail);
+
 }

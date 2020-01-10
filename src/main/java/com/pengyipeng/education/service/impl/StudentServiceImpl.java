@@ -29,4 +29,14 @@ public class StudentServiceImpl implements StudentService {
     public int updateInfo(StudentVo studentVo) {
         return stud.updateInfo(studentVo);
     }
+
+    @Override
+    public int updatePhone(int userid, String pwd, String newPhone) {
+        return stud.updatePhone(userid,pwd,newPhone);
+    }
+
+    @Override
+    public int updateEmail(int userid, String pwd, String newEmail) {
+        return stud.updateEmail(userid,pwd,newEmail);
+    }
 }

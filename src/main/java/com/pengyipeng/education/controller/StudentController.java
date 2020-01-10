@@ -14,10 +14,7 @@ import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -55,12 +52,14 @@ public class StudentController {
             @ApiImplicitParam(name = "userid", value = "用户的id号", dataType = "String", example = "2")
     })
     @GetMapping(value = "/checkStuByUserId")
+    //@ResponseBody
     public String checkStuByUserId(@RequestParam(value = "mark",required = false,defaultValue = "show")String mark,@RequestParam(value = "userid",defaultValue = "2")int userid, Model model){
         StudentVo studentVo=studentService.checkStuByUserId(userid);
         model.addAttribute("user",studentVo);
         Result result = new Result();
         result.setData(JSON.toJSONString(studentVo));
         //System.out.println(studentVo.getUserPhoto());
+        //return result;
         if("update".equals(mark)){
             return "updateInfo";
         }else {
@@ -90,5 +89,49 @@ public class StudentController {
         System.out.println(url);
         studentService.updateInfo(stu);
         return "redirect:checkStuByUserId?userid="+userid;
+    }
+
+    @ApiOperation(value = "修改手机号", notes = "验证用户id与密码，修改手机号")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "userid", value = "用户id", dataType = "String", example = "2"),
+            @ApiImplicitParam(name = "pwd", value = "用户的登录密码", dataType = "String", example = "111111"),
+            @ApiImplicitParam(name = "newPhone", value = "要绑定的新手机号", dataType = "String", example = "18888888888")
+    })
+    @PostMapping("/updatePhone")
+    @ResponseBody
+    public Result updatePhone(int userid,String pwd,String newPhone){
+        Result result=new Result();
+        int num=studentService.updatePhone(userid,pwd,newPhone);
+        if(num>0){
+            result.setCode(2001);
+            result.setMessage("修改成功");
+            result.setData("新绑定的手机号是:"+newPhone);
+        }else{
+            result.setCode(1001);
+            result.setMessage("修改失败");
+        }
+        return result;
+    }
+
+    @ApiOperation(value = "修改邮箱", notes = "验证用户id与密码，邮箱")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "userid", value = "用户id", dataType = "String", example = "2"),
+            @ApiImplicitParam(name = "pwd", value = "用户的登录密码", dataType = "String", example = "111111"),
+            @ApiImplicitParam(name = "newEmail", value = "要绑定的新邮箱", dataType = "String", example = "123456@163.com")
+    })
+    @PostMapping("/updateEmail")
+    @ResponseBody
+    public Result updateEmail(int userid,String pwd,String newEmail){
+        Result result=new Result();
+        int num=studentService.updateEmail(userid,pwd,newEmail);
+        if(num>0){
+            result.setCode(2001);
+            result.setMessage("修改成功");
+            result.setData("新绑定的邮箱是:"+newEmail);
+        }else{
+            result.setCode(1001);
+            result.setMessage("修改失败");
+        }
+        return result;
     }
 }
