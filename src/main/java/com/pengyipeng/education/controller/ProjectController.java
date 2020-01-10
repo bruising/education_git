@@ -88,12 +88,21 @@ public class ProjectController {
     })
     @ApiResponses({
             @ApiResponse(code = 120,message = "失败"),
-            @ApiResponse(code = 110,message = "成功")
+            @ApiResponse(code = 110,message = "成功"),
+            @ApiResponse(code = 130,message = "隐藏状态，显示顺序无法修改"),
+            @ApiResponse(code = 140,message = "已有该顺序，换个顺序再改")
     })
     @PostMapping(value = "updateShowOrder")
     public Message updateShowOrder(Integer showOrder,Integer id){
+        Project project = projectDaoService.yzShowOrder(id);
         Message message = new Message();
-        if (projectDaoService.updateShowOrder(id,showOrder)>0){
+        if (project.getFlag()==-1){
+            message.setCode("130");
+            message.setMsg("隐藏状态，显示顺序无法修改");
+        }else if(project.getShowOrder()==showOrder){
+            message.setCode("140");
+            message.setMsg("已有该顺序，换个顺序再改");
+        }else if (projectDaoService.updateShowOrder(id,showOrder)>0){
             message.setCode("110");
             message.setMsg("修改成功");
         }else{

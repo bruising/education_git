@@ -48,6 +48,10 @@
         update project set show_order=#{showOrder} where id=#{id}
     </update>
 
+    <select id="yzShowOrder" resultMap="p">
+        SELECT show_order,flag FROM project WHERE id=#{id}
+    </select>
+
     <select id="getProjectById" resultMap="p">
         SELECT p.project_no,p.`name`,p.intro,count(s.student_id) stu_count FROM project p INNER JOIN project_student s ON p.id=s.project_id AND p.id=#{id} GROUP BY p.id
     </select>

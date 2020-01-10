@@ -26,6 +26,8 @@ public interface ProjectDao {
     Integer updateFlag(@Param("id") Integer id, @Param("flag") Integer flag);
     //修改项目顺序
     Integer updateShowOrder(@Param("id") Integer id, @Param("showOrder") Integer showOrder);
+    //验证修改的项目顺序是否重复以及该项目是否隐藏
+    Project yzShowOrder(@Param("id") Integer id);
     //按照项目ID查询项目信息(与学生相关的)
     List<Project> getProjectById(@Param("id") Integer id);
     //按学生姓名或无条件 查询学生  （模糊查找）

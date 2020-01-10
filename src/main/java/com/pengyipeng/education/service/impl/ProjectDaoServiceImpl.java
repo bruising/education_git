@@ -36,6 +36,11 @@ public class ProjectDaoServiceImpl implements ProjectDaoService {
     }
 
     @Override
+    public Project yzShowOrder(Integer id) {
+        return projectDao.yzShowOrder(id);
+    }
+
+    @Override
     public List<Project> getProjectById(Integer id) {
         return projectDao.getProjectById(id);
     }

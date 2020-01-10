@@ -17,6 +17,8 @@ public interface ProjectDaoService {
     Integer getCount(String name, String startDate, String overDate, Integer flag);
     Integer updateFlag(Integer id, Integer flag);
     Integer updateShowOrder(Integer id, Integer showOrder);
+    //验证修改的项目顺序是否重复以及该项目是否隐藏
+    Project yzShowOrder(Integer id);
     //按照项目ID查询项目信息
     List<Project> getProjectById(Integer id);
     //按学生姓名或无条件 查询学生  （模糊查找）
