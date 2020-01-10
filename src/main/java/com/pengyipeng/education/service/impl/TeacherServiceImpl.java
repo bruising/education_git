@@ -58,6 +58,7 @@ public class TeacherServiceImpl implements TeacherService {
     @Override
     public Result addTeacher(Map<String, Object> map) {
         Result result = new Result();
+        StringBuilder message = new StringBuilder();
         //先确认登录账号是否存在
         TeacherUserVo teacher = teacherMapper.selectUserIsExist(map.get("email").toString(), map.get("phone").toString());
         if(teacher!=null){
@@ -80,8 +81,12 @@ public class TeacherServiceImpl implements TeacherService {
             //添加中间表
             int c = teacherMapper.insertTeacherAndUser(map);
             if (b>0 && c>0){
+                if (map.get("uploadStatus").toString().equals("failed")){
+                    message.append("头像上传失败，");
+                }
+                message.append("新增教师成功");
                 result.setCode(200);
-                result.setMessage("新增教师成功");
+                result.setMessage(message.toString());
             }else {
                 result.setCode(234);
                 result.setMessage("新增失败");
