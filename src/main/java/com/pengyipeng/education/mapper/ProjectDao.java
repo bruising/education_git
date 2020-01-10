@@ -1,5 +1,6 @@
 package com.pengyipeng.education.mapper;
 
+import com.pengyipeng.education.model.entity.Course;
 import com.pengyipeng.education.model.entity.Project;
 import com.pengyipeng.education.model.vo.ProStuUserVO;
 import org.apache.ibatis.annotations.Mapper;
@@ -25,11 +26,16 @@ public interface ProjectDao {
     Integer updateFlag(@Param("id") Integer id, @Param("flag") Integer flag);
     //修改项目顺序
     Integer updateShowOrder(@Param("id") Integer id, @Param("showOrder") Integer showOrder);
-    //按照项目ID查询项目信息
-    List<Project> getProjectById(@Param("id")Integer id);
+    //按照项目ID查询项目信息(与学生相关的)
+    List<Project> getProjectById(@Param("id") Integer id);
     //按学生姓名或无条件 查询学生  （模糊查找）
-    List<ProStuUserVO> getStuUser(@Param("id")Integer id,@Param("sname")String sname,@Param("page") Integer page, @Param("limit") Integer limit);
+    List<ProStuUserVO> getStuUser(@Param("id") Integer id, @Param("sname") String sname, @Param("page") Integer page, @Param("limit") Integer limit);
     //按学生姓名或无条件 查询学生  （模糊查找）的总数量
-    Integer getStuCount(@Param("id")Integer id,@Param("sname")String sname);
-
+    Integer getStuCount(@Param("id") Integer id, @Param("sname") String sname);
+    //按 项目ID 查询 项目信息 （与课程相关的）
+    List<Project> getProById(@Param("id") Integer id);
+    //按课程名称或无条件 查询课程  （模糊查找、需要分页）
+    List<Course> getCourseByPro(@Param("id") Integer id, @Param("course_name") String course_name, @Param("page") Integer page, @Param("limit") Integer limit);
+    //按课程名称或无条件 查询课程  （模糊查找、需要分页）的总数量
+    Integer getCourseCount(@Param("id") Integer id, @Param("course_name") String course_name);
 }

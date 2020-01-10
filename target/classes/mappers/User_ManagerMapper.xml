@@ -74,4 +74,21 @@
 			<result property="birth" column="birth"/>
 		</collection>
 	</resultMap>
+
+	<select id="queryAllUserCount"  resultType="int">
+		SELECT   COUNT(*)FROM `user_manage`;
+	</select>
+
+	<select id="queryAddUserEveryday"  resultType="int">
+		SELECT  COUNT(*)  FROM  user_manage  WHERE  registration_time  BETWEEN  DATE_FORMAT(NOW(),'%Y-%m-%d 00:00:00')  AND  DATE_FORMAT(NOW(),'%Y-%m-%d 23:59:59')
+	</select>
+
+	<select id="queryAddPaymentUserCountEveryday"  resultType="int">
+		SELECT COUNT(*) FROM `user_manage`  WHERE  latest_payment_time  BETWEEN  DATE_FORMAT(NOW(),'%Y-%m-%d 00:00:00')  AND  DATE_FORMAT(NOW(),'%Y-%m-%d 23:59:59')  AND  payment_status=1;
+	</select>
+
+	<select id="queryActiveUserCount"  resultType="int">
+		SELECT  count(*)  FROM  (SELECT  SUM(course_progress) FROM `user_manage` m INNER JOIN  course_student s on   m.userid=s.student_id  GROUP BY  userid  HAVING SUM(course_progress)>60 )  as t
+
+	</select>
 </mapper>

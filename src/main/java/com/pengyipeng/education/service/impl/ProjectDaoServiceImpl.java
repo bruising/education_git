@@ -1,6 +1,7 @@
 package com.pengyipeng.education.service.impl;
 
 import com.pengyipeng.education.mapper.ProjectDao;
+import com.pengyipeng.education.model.entity.Course;
 import com.pengyipeng.education.model.entity.Project;
 import com.pengyipeng.education.model.vo.ProStuUserVO;
 import com.pengyipeng.education.service.ProjectDaoService;
@@ -47,5 +48,20 @@ public class ProjectDaoServiceImpl implements ProjectDaoService {
     @Override
     public Integer getStuCount(Integer id, String sname) {
         return projectDao.getStuCount(id, sname);
+    }
+
+    @Override
+    public List<Project> getProById(Integer id) {
+        return projectDao.getProById(id);
+    }
+
+    @Override
+    public List<Course> getCourseByPro(Integer id, String course_name, Integer page, Integer limit) {
+        return projectDao.getCourseByPro(id, course_name, (page-1)*limit, limit);
+    }
+
+    @Override
+    public Integer getCourseCount(Integer id, String course_name) {
+        return projectDao.getCourseCount(id, course_name);
     }
 }

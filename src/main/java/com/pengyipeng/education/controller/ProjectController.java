@@ -1,8 +1,10 @@
 package com.pengyipeng.education.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.pengyipeng.education.model.entity.Course;
 import com.pengyipeng.education.model.entity.Message;
 import com.pengyipeng.education.model.entity.Project;
+import com.pengyipeng.education.model.vo.ProCourseVO;
 import com.pengyipeng.education.model.vo.ProStuUserMesVO;
 import com.pengyipeng.education.model.vo.ProStuUserVO;
 import com.pengyipeng.education.model.vo.ProjectVO;
@@ -26,8 +28,11 @@ import java.util.List;
 @RestController
 @Api(tags = "牛岩松")
 public class ProjectController {
+
     @Resource
     private ProjectDaoService projectDaoService;
+
+
     @ApiOperation(value = "查询展示项目",notes="返回项目数据")
     @ApiResponses({
             @ApiResponse(code = 120,message = "失败"),
@@ -78,7 +83,7 @@ public class ProjectController {
         }
         return message;
     }
-    @ApiOperation(value = "按 项目ID 查询 项目信息 ",notes="项目数据")
+    @ApiOperation(value = "按 项目ID 查询 项目信息（与学生相关） ",notes="项目数据")
     @RequestMapping(value = "getProjectById")
     public String getProjectById(Integer id, HttpServletRequest request){
         List<Project>list=projectDaoService.getProjectById(id);
@@ -92,6 +97,20 @@ public class ProjectController {
         Integer count = projectDaoService.getStuCount(id, sname);
         ProStuUserMesVO proStuUserMesVO = new ProStuUserMesVO(list,count,0,"");
         return JSON.toJSONString(proStuUserMesVO);
+    }
+    @ApiOperation(value = "按 项目ID 查询 项目信息(与课程相关) ",notes="项目数据")
+    @RequestMapping(value = "getProById")
+    public String getProById(Integer id){
+        List<Project>list=projectDaoService.getProById(id);
+        return JSON.toJSONString(list);
+    }
+    @ApiOperation(value = "按课程名称或无条件 查询课程 ",notes="返回与该项目相关的课程信息")
+    @RequestMapping(value = "getCourseByPro")
+    public String getCourseByPro(Integer id,String course_name,Integer page,Integer limit){
+        List<Course>list=projectDaoService.getCourseByPro(id, course_name, page, limit);
+        Integer count = projectDaoService.getCourseCount(id, course_name);
+        ProCourseVO proCourseVO = new ProCourseVO(list,count,0,"");
+        return JSON.toJSONString(proCourseVO);
     }
 
 }

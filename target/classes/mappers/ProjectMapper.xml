@@ -4,7 +4,7 @@
     <select id="getProgect" resultMap="p">
         SELECT * FROM
         (select bb.*,aa.course_count from
-        (SELECT p.id,p.project_no,p.`name`,p.intro,count(s.student_id) stu_count,p.create_date,p.flag FROM project p INNER JOIN project_student s ON p.id=s.project_id GROUP BY p.id) bb,
+        (SELECT p.id,p.project_no,p.`name`,p.intro,count(s.student_id) stu_count,p.create_date,p.flag,p.show_order FROM project p INNER JOIN project_student s ON p.id=s.project_id GROUP BY p.id) bb,
         (SELECT p.id,count(c.course_id) course_count FROM project p INNER JOIN course_project c ON p.id=c.project_id GROUP BY p.id) aa
         WHERE bb.id=aa.id) w
         <where>
@@ -87,6 +87,27 @@
         project_student WHERE cc.sid=project_student.student_id)dd
         <if test="sname!=null and sname!=''">
             WHERE dd.sname LIKE concat('%',#{sname},'%')
+        </if>
+    </select>
+
+    <select id="getProById" resultMap="p">
+        SELECT p.project_no,p.`name`,p.intro,count(c.course_id) course_count FROM project p INNER JOIN course_project c ON p.id=c.project_id AND p.id=#{id} GROUP BY p.id
+    </select>
+
+    <select id="getCourseByPro" resultType="com.pengyipeng.education.model.entity.Course">
+        SELECT course.course_id,course.course_name,course.course_introduce,course.course_cycle,course.course_status,course.course_ability_training FROM course WHERE course_id in
+        (SELECT course_id FROM course_project WHERE project_id=#{id})
+        <if test="course_name!=null and course_name!=''">
+            AND course.course_name like concat('%',#{course_name},'%')
+        </if>
+        limit #{page},#{limit}
+    </select>
+
+    <select id="getCourseCount" resultType="java.lang.Integer">
+        SELECT count(*) FROM course WHERE course_id in
+        (SELECT course_id FROM course_project WHERE project_id=#{id})
+        <if test="course_name!=null and course_name!=''">
+            AND course.course_name like concat('%',#{course_name},'%')
         </if>
     </select>
 
