@@ -24,7 +24,7 @@ public class Project {
     private Integer stuCount;//参与学生人数
     private Integer courseCount;//关联课程数量
     private Integer flag;//状态 1-显示 -1隐藏
-    private Date createDate;//创建时间
+    private String createDate;//创建时间
     private Integer showOrder;//显示顺序
 
 }
