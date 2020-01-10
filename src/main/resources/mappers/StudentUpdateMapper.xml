@@ -13,4 +13,14 @@
         where userid=#{userid}
     </update>
 
+    <update id="updatePhone">
+        update user_manage set phone=#{newPhone}
+        where userid=#{userid} and pwd=#{pwd}
+    </update>
+
+    <update id="updateEmail">
+        update user_manage set email=#{newEmail}
+        where userid=#{userid} and pwd=#{pwd}
+    </update>
+
 </mapper>
