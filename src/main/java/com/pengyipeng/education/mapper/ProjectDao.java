@@ -2,6 +2,7 @@ package com.pengyipeng.education.mapper;
 
 import com.pengyipeng.education.model.entity.Course;
 import com.pengyipeng.education.model.entity.Project;
+import com.pengyipeng.education.model.vo.CourseVO;
 import com.pengyipeng.education.model.vo.ProStuUserVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -37,7 +38,7 @@ public interface ProjectDao {
     //按 项目ID 查询 项目信息 （与课程相关的）
     List<Project> getProById(@Param("id") Integer id);
     //按课程名称或无条件 查询课程  （模糊查找、需要分页）
-    List<Course> getCourseByPro(@Param("id") Integer id, @Param("course_name") String course_name, @Param("page") Integer page, @Param("limit") Integer limit);
+    List<CourseVO> getCourseByPro(@Param("id") Integer id, @Param("course_name") String course_name, @Param("page") Integer page, @Param("limit") Integer limit);
     //按课程名称或无条件 查询课程  （模糊查找、需要分页）的总数量
     Integer getCourseCount(@Param("id") Integer id, @Param("course_name") String course_name);
 }

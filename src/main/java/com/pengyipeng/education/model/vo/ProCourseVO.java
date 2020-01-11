@@ -10,16 +10,16 @@ import java.util.List;
  * @Describe: 项目与课程的VO实体类
  */
 public class ProCourseVO {
-    private List<Course> data;
+    private List<CourseVO> data;
     private Integer count;
     private Integer code;
     private String msg;
 
-    public List<Course> getData() {
+    public List<CourseVO> getData() {
         return data;
     }
 
-    public void setData(List<Course> data) {
+    public void setData(List<CourseVO> data) {
         this.data = data;
     }
 
@@ -47,7 +47,7 @@ public class ProCourseVO {
         this.msg = msg;
     }
 
-    public ProCourseVO(List<Course> data, Integer count, Integer code, String msg) {
+    public ProCourseVO(List<CourseVO> data, Integer count, Integer code, String msg) {
         this.data = data;
         this.count = count;
         this.code = code;

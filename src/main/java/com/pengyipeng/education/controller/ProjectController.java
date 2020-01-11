@@ -4,10 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.pengyipeng.education.model.entity.Course;
 import com.pengyipeng.education.model.entity.Message;
 import com.pengyipeng.education.model.entity.Project;
-import com.pengyipeng.education.model.vo.ProCourseVO;
-import com.pengyipeng.education.model.vo.ProStuUserMesVO;
-import com.pengyipeng.education.model.vo.ProStuUserVO;
-import com.pengyipeng.education.model.vo.ProjectVO;
+import com.pengyipeng.education.model.vo.*;
 import com.pengyipeng.education.service.ProjectDaoService;
 import io.swagger.annotations.*;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -147,9 +144,10 @@ public class ProjectController {
     })
     @PostMapping(value = "getCourseByPro")
     public String getCourseByPro(Integer id,String course_name,Integer page,Integer limit){
-        List<Course>list=projectDaoService.getCourseByPro(id, course_name, page, limit);
+        List<CourseVO>list=projectDaoService.getCourseByPro(id, course_name, page, limit);
         Integer count = projectDaoService.getCourseCount(id, course_name);
         ProCourseVO proCourseVO = new ProCourseVO(list,count,0,"");
+        System.out.println(JSON.toJSONString(list));
         return JSON.toJSONString(proCourseVO);
     }
 

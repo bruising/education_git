@@ -98,9 +98,9 @@
         SELECT p.project_no,p.`name`,p.intro,count(c.course_id) course_count FROM project p INNER JOIN course_project c ON p.id=c.project_id AND p.id=#{id} GROUP BY p.id
     </select>
 
-    <select id="getCourseByPro" resultType="com.pengyipeng.education.model.entity.Course">
-        SELECT course.course_id,course.course_name,course.course_introduce,course.course_cycle,course.course_status,course.course_ability_training FROM course WHERE course_id in
-        (SELECT course_id FROM course_project WHERE project_id=#{id})
+    <select id="getCourseByPro" resultType="com.pengyipeng.education.model.vo.CourseVO">
+        SELECT course.course_id courseId,course.course_name courseName,course.course_introduce courseIntroduce,course.course_cycle courseCycle,course.course_status courseStatus,course.course_ability_training  courseAbilityTraining FROM course WHERE course_id in
+        (SELECT course_id courseId FROM course_project WHERE project_id=#{id})
         <if test="course_name!=null and course_name!=''">
             AND course.course_name like concat('%',#{course_name},'%')
         </if>

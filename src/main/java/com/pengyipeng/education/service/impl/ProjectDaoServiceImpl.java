@@ -3,6 +3,7 @@ package com.pengyipeng.education.service.impl;
 import com.pengyipeng.education.mapper.ProjectDao;
 import com.pengyipeng.education.model.entity.Course;
 import com.pengyipeng.education.model.entity.Project;
+import com.pengyipeng.education.model.vo.CourseVO;
 import com.pengyipeng.education.model.vo.ProStuUserVO;
 import com.pengyipeng.education.service.ProjectDaoService;
 import org.springframework.stereotype.Service;
@@ -61,7 +62,7 @@ public class ProjectDaoServiceImpl implements ProjectDaoService {
     }
 
     @Override
-    public List<Course> getCourseByPro(Integer id, String course_name, Integer page, Integer limit) {
+    public List<CourseVO> getCourseByPro(Integer id, String course_name, Integer page, Integer limit) {
         return projectDao.getCourseByPro(id, course_name, (page-1)*limit, limit);
     }
 
