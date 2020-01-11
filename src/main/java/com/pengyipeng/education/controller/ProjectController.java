@@ -57,6 +57,7 @@ public class ProjectController {
 
         return JSON.toJSONString(projectVO);
     }
+
     @ApiOperation(value = "修改项目状态",notes="返回提示")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "id", value = "项目ID", dataType = "String"),
@@ -79,6 +80,7 @@ public class ProjectController {
         }
         return message;
     }
+
     @ApiOperation(value = "修改项目顺序",notes="返回字符串")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "id", value = "项目ID", dataType = "String"),
@@ -109,6 +111,7 @@ public class ProjectController {
         }
         return message;
     }
+
     @ApiOperation(value = "按 项目ID 查询 项目信息（与学生相关） ",notes="项目数据")
     @PostMapping(value = "getProjectById")
     public String getProjectById(Integer id, HttpServletRequest request){
@@ -116,6 +119,7 @@ public class ProjectController {
 
         return JSON.toJSONString(list);
     }
+
     @ApiOperation(value = "按学生姓名或无条件查询学生 ",notes="返回该项目报名学生信息")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "id", value = "项目ID", dataType = "String"),
@@ -130,12 +134,14 @@ public class ProjectController {
         ProStuUserMesVO proStuUserMesVO = new ProStuUserMesVO(list,count,0,"");
         return JSON.toJSONString(proStuUserMesVO);
     }
+
     @ApiOperation(value = "按 项目ID 查询 项目信息(与课程相关) ",notes="项目数据")
     @PostMapping(value = "getProById")
     public String getProById(Integer id){
         List<Project>list=projectDaoService.getProById(id);
         return JSON.toJSONString(list);
     }
+
     @ApiOperation(value = "按课程名称或无条件 查询课程 ",notes="返回与该项目相关的课程信息")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "id", value = "项目ID", dataType = "String"),
@@ -148,8 +154,29 @@ public class ProjectController {
         List<CourseVO>list=projectDaoService.getCourseByPro(id, course_name, page, limit);
         Integer count = projectDaoService.getCourseCount(id, course_name);
         ProCourseVO proCourseVO = new ProCourseVO(list,count,0,"");
+
         System.out.println(JSON.toJSONString(proCourseVO));
         return JSON.toJSONString(proCourseVO);
     }
 
+    @ApiOperation(value = "通过项目ID 查询相关课程的名称",notes="查询成功返回 相关项目课程名称集合，查询失败返回 失败状态码")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "id", value = "项目ID", dataType = "Integer")
+    })
+    @ApiResponses({
+            @ApiResponse(code = 120,message = "失败"),
+            @ApiResponse(code = 110,message = "成功")
+    })
+    @PostMapping("queryCourseNameByProjectId")
+    public String queryCourseNameByProjectId(Integer id){
+        Message message = new Message();
+        List<CourseVO> courseVOS = projectDaoService.queryCourseNameByProjectId(id);
+        if (courseVOS.size()>0){
+            return JSON.toJSONString(courseVOS);
+        } else{
+            message.setCode("120");
+            message.setMsg("无数据");
+        }
+        return JSON.toJSONString(message);
+    }
 }

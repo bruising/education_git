@@ -110,7 +110,20 @@
             AND course.course_name like concat('%',#{course_name},'%')
         </if>
     </select>
-	
+
+    <select id="selectCourseNameByProjectId" resultType="com.pengyipeng.education.model.vo.CourseVO">
+        SELECT
+            course.course_name
+        FROM
+            course
+            INNER JOIN course_project ON course.course_id = course_project.course_id
+        WHERE
+            course_project.project_id = #{id}
+        GROUP BY
+            course_project.course_id
+    </select>
+
+
 	<select id="getProjectInfoByProjectId" resultType="com.pengyipeng.education.model.entity.Project">
         SELECT project.flag FROM project WHERE project.id = #{id}
     </select>

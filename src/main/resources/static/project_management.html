@@ -107,7 +107,7 @@
 		<!-- 状态 -->
 		<script type="text/html" id="flag_html">
 			<input type="checkbox" name="flag" value="{{d.id}}" lay-skin="switch" lay-text="显示|隐藏" lay-filter="flag" {{ d.flag==
-           1 ? 'checked' : '' }}>
+           1 ? 'checked' : '' }} />
 </script>
 
 		<!-- 显示顺序 -->
@@ -285,20 +285,25 @@
 
 				//行元素单击事件  查询关联课程信息
 				table.on('row(project_info_table)', function(obj) {
-					console.log(obj.data) //得到当前行数据
+					console.log(obj.data.id) //得到当前行数据
+					var str = "";
 					$.ajax({
 						type: 'post',
-						url: '', //请求关联课程信息路径
+						url: 'queryCourseNameByProjectId', //请求关联课程信息路径
 						dataType: 'json',
 						data: {
 							id: obj.data.id
 						},
 						success: function(data) {
-							console.log(data)
+							str ="";
+							for (var i = 0; i <data.length ; i++) {
+								str+= (i+1)+"."+data[i].courseName+"<br/>"
+							}
+							console.log(str)
 						}
 					})
 					var elem = $("td[data-field='courseCount']").click(function() {
-						layer.tips("1.dasmasdmlksdmnfla", this, {
+						layer.tips(str, this, {
 							tips: [2, '#fff'],
 							time: 5000,
 						});

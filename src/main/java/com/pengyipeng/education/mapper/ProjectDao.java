@@ -39,6 +39,8 @@ public interface ProjectDao {
     Integer getStuCount(@Param("id") Integer id, @Param("sname") String sname);
     //按 项目ID 查询 项目信息 （与课程相关的）
     List<Project> getProById(@Param("id") Integer id);
+    //通过项目ID 查询相关的课程名称
+    List<CourseVO> selectCourseNameByProjectId(@Param("id") Integer id);
     //按课程名称或无条件 查询课程  （模糊查找、需要分页）
     List<CourseVO> getCourseByPro(@Param("id") Integer id, @Param("course_name") String course_name, @Param("page") Integer page, @Param("limit") Integer limit);
     //按课程名称或无条件 查询课程  （模糊查找、需要分页）的总数量
