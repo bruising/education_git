@@ -7,6 +7,7 @@ import com.pengyipeng.education.model.entity.Project;
 import com.pengyipeng.education.model.vo.*;
 import com.pengyipeng.education.service.ProjectDaoService;
 import io.swagger.annotations.*;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -41,7 +42,7 @@ public class ProjectController {
             @ApiResponse(code = 120,message = "未找到符合该条件的信息"),
             @ApiResponse(code = 110,message = "成功")
     })
-    @PostMapping(value = "/init")
+    @GetMapping(value = "/init")
     public String init(String name,String startDate,String overDate,Integer flag,Integer page,Integer limit){
         System.out.println(flag);
         Message message = new Message();
@@ -91,15 +92,15 @@ public class ProjectController {
     })
     @PostMapping(value = "updateShowOrder")
     public Message updateShowOrder(Integer showOrder,Integer id){
-        Project project = projectDaoService.yzShowOrder(id);
+        Integer integer = projectDaoService.updateShowOrder(id, showOrder);
         Message message = new Message();
-        if (project.getFlag()==-1){
+        if (integer == 100){
             message.setCode("130");
             message.setMsg("隐藏状态，显示顺序无法修改");
-        }else if(project.getShowOrder()==showOrder){
+        }else if(integer == 101){
             message.setCode("140");
             message.setMsg("已有该顺序，换个顺序再改");
-        }else if (projectDaoService.updateShowOrder(id,showOrder)>0){
+        }else if (projectDaoService.updateShowOrder(id,showOrder) == 1){
             message.setCode("110");
             message.setMsg("修改成功");
         }else{
@@ -122,7 +123,7 @@ public class ProjectController {
             @ApiImplicitParam(name = "page", value = "页码", dataType = "String"),
             @ApiImplicitParam(name = "limit", value = "每页数量", dataType = "String")
     })
-    @PostMapping(value = "getStuUser")
+    @GetMapping(value = "getStuUser")
     public String getStuUser(Integer id,String sname,Integer page,Integer limit){
         List<ProStuUserVO>list=projectDaoService.getStuUser(id, sname,page,limit);
         Integer count = projectDaoService.getStuCount(id, sname);
@@ -142,12 +143,12 @@ public class ProjectController {
             @ApiImplicitParam(name = "page", value = "页码", dataType = "String"),
             @ApiImplicitParam(name = "limit", value = "每页数量", dataType = "String")
     })
-    @PostMapping(value = "getCourseByPro")
+    @GetMapping(value = "getCourseByPro")
     public String getCourseByPro(Integer id,String course_name,Integer page,Integer limit){
         List<CourseVO>list=projectDaoService.getCourseByPro(id, course_name, page, limit);
         Integer count = projectDaoService.getCourseCount(id, course_name);
         ProCourseVO proCourseVO = new ProCourseVO(list,count,0,"");
-        System.out.println(JSON.toJSONString(list));
+        System.out.println(JSON.toJSONString(proCourseVO));
         return JSON.toJSONString(proCourseVO);
     }
 

@@ -7,11 +7,13 @@ import com.pengyipeng.education.model.vo.CourseVO;
 import com.pengyipeng.education.model.vo.ProStuUserVO;
 import com.pengyipeng.education.service.ProjectDaoService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
 
 @Service
+@Transactional
 public class ProjectDaoServiceImpl implements ProjectDaoService {
     @Resource
     private ProjectDao projectDao;
@@ -33,12 +35,17 @@ public class ProjectDaoServiceImpl implements ProjectDaoService {
 
     @Override
     public Integer updateShowOrder(Integer id, Integer showOrder) {
+        Project pro = projectDao.getProjectInfoByProjectId(id);
+        List<Project> showOrderList = projectDao.getProjectShowOrder();
+        if (pro.getFlag() == -1){
+            return 100;
+        }
+        for (int i = 0; i <showOrderList.size() ; i++) {
+            if (showOrderList.get(i).getShowOrder()==showOrder){
+                return 101;
+            }
+        }
         return projectDao.updateShowOrder(id, showOrder);
-    }
-
-    @Override
-    public Project yzShowOrder(Integer id) {
-        return projectDao.yzShowOrder(id);
     }
 
     @Override
