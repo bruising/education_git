@@ -108,7 +108,7 @@
 		<script type="text/html" id="flag_html">
 			<input type="checkbox" name="flag" value="{{d.id}}" lay-skin="switch" lay-text="显示|隐藏" lay-filter="flag" {{ d.flag==
            1 ? 'checked' : '' }} />
-</script>
+		</script>
 
 		<!-- 显示顺序 -->
 		<!-- <script type="text/html" id="showOrder_html">
@@ -189,7 +189,6 @@
 								style: 'color:#4876FF;',
 								width: 100,
 								edit: 'text',
-								event: 'showOrder',
 								align: 'center'
 							}, {
 								field: 'option',
@@ -220,17 +219,17 @@
 				console.log(sessionStorage.getItem("overDate"))
 				 */
 				//表单搜索  表单多条件查询
-				form.on('submit()',function(data){
+				form.on('submit()', function(data) {
 					console.log(data.field);
 					var beginDate = sessionStorage.getItem("startDate");
 					var endDate = sessionStorage.getItem("overDate");
-					
+
 					tableIns.reload({
-						where:{
-							name:data.field.name,
-							startDate:beginDate,
-							overDate:endDate,
-							flag:data.field.flag
+						where: {
+							name: data.field.name,
+							startDate: beginDate,
+							overDate: endDate,
+							flag: data.field.flag
 						}
 					})
 					return false;
@@ -274,9 +273,11 @@
 							showOrder: obj.value
 						},
 						success: function(data) {
-							if (data.code == 130 || data.code == 140){
+							if (data.code == 130 || data.code == 140) {
 								tableIns.reload();
-								layer.alert(data.msg,{icon:2});
+								layer.alert(data.msg, {
+									icon: 2
+								});
 							}
 						}
 					})
@@ -295,9 +296,9 @@
 							id: obj.data.id
 						},
 						success: function(data) {
-							str ="";
-							for (var i = 0; i <data.length ; i++) {
-								str+= (i+1)+"."+data[i].courseName+"<br/>"
+							str = "";
+							for (var i = 0; i < data.length; i++) {
+								str += (i + 1) + "." + data[i].courseName + "<br/>"
 							}
 							console.log(str)
 						}
@@ -319,7 +320,7 @@
 					/* if (data.flag == -1) {
 						$("[data-field='showOrder']").attr("readonly", true);
 					} */
-					
+
 					if (layEvent === 'to_project_student_info') {
 						sessionStorage.setItem("id", data.id);
 						location.href = "project_student_info.html";
@@ -329,7 +330,7 @@
 					}
 				})
 				//新增项目 跳转页面
-				$('#create_new_project_btn').click(function(){
+				$('#create_new_project_btn').click(function() {
 					location.href = "create_new_project_before.html";
 				})
 			})

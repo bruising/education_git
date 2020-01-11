@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d3efd5b4-1ca5-49c8-a025-aa7862588ed5" name="Default Changelist" comment="牛力琼 对项目管理模块进行调试">
+    <list default="true" id="d3efd5b4-1ca5-49c8-a025-aa7862588ed5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pengyipeng/education/controller/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pengyipeng/education/controller/ProjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pengyipeng/education/mapper/ProjectDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pengyipeng/education/mapper/ProjectDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pengyipeng/education/service/ProjectDaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pengyipeng/education/service/ProjectDaoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pengyipeng/education/service/impl/ProjectDaoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pengyipeng/education/service/impl/ProjectDaoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/ProjectMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/ProjectMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/project_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/project_details.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/project_management.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/project_management.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -117,7 +114,7 @@
       <workItem from="1578714707118" duration="116000" />
       <workItem from="1578714824281" duration="331000" />
       <workItem from="1578715777435" duration="2665000" />
-      <workItem from="1578720874652" duration="3905000" />
+      <workItem from="1578720874652" duration="7522000" />
     </task>
     <task id="LOCAL-00001" summary="牛力琼 开启事务 对项目管理模块进行调试">
       <created>1578717159901</created>
@@ -140,7 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578720593066</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="牛力琼 对项目管理模块进行调试">
+      <created>1578724845792</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1578724845792</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
