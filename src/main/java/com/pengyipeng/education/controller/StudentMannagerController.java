@@ -162,7 +162,7 @@ public class StudentMannagerController {
         if (studentpaymentstatus==1){
             message.setCode("256");
             message.setMsg("学生已为付费学生");
-       }else {
+        }else {
             int i=studentManagerService.updateStudentPayStatus(sid);
             if (i>0){
                 message.setCode("200");
