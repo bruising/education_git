@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
+
+import static com.google.common.graph.ElementOrder.sorted;
 
 /**
  * @author 李陈
@@ -25,10 +25,16 @@ public class SupplementaryStudentServiceImpl implements SupplementaryStudentServ
     private SupplementaryStudentDao supplementaryStudentDao;
 
     @Override
-    public List<User_Manager> getUserByNicknameOrPhone(String nickname, String phone) {
-        List<User_Manager> list=supplementaryStudentDao.getUserByNicknameOrPhone(nickname,phone);
-        if(list!=null&&list.size()>0){
-            return list;
+    public List<User_Manager> getUserByNicknameOrPhone(String ms) {
+        List<User_Manager> list=supplementaryStudentDao.getUserByNickname(ms);
+        List<User_Manager> list1=supplementaryStudentDao.getUserByPhone(ms);
+
+        Set<User_Manager> set = new HashSet<User_Manager>(list);
+        set.addAll(list1);
+        List<User_Manager> list2 = new ArrayList<User_Manager>(set);
+        if(list2!=null&&list2.size()>0){
+
+            return list2;
         }
         return null;
     }

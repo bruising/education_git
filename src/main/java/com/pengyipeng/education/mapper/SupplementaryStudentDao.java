@@ -21,10 +21,16 @@ public interface SupplementaryStudentDao {
     /**
      * 模糊查询用户信息
      * @param nickname 昵称
+     * @return 用户信息
+     */
+    List<User_Manager> getUserByNickname(@Param("nickname")String nickname);
+
+    /**
+     * 模糊查询用户信息
      * @param phone 手机号(账号)
      * @return 用户信息
      */
-    List<User_Manager> getUserByNicknameOrPhone(@Param("nickname")String nickname,@Param("phone")String phone);
+    List<User_Manager> getUserByPhone(@Param("phone")String phone);
 
     /**
      * 获取用户id对应的学生信息

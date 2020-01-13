@@ -32,6 +32,7 @@ import java.util.List;
  */
 @Controller
 @Api(tags = "添加课程信息，放入缓存-李陈")
+//@Api(tags = "添加课程信息，放入缓存-李陈")
 public class AddCourseController {
 
 
@@ -50,9 +51,9 @@ public class AddCourseController {
             @ApiImplicitParam(name = "course_cycle", value = "教学周期", dataType = "String", example = "8周"),
             @ApiImplicitParam(name = "course_ability_training", value = "能力培养", dataType = "String", example = "动手能力"),
             //@ApiImplicitParam(name = "course_pic", value = "course_pic", dataType = "String", example = "Http://www.budai.com"),
-            @ApiImplicitParam(name = "project_id", value = "项目id数组",allowMultiple = true,paramType = "query", dataType = "int", example ="[1,2]"),
-            @ApiImplicitParam(name = "apply_phase_id", value = "适应阶段数组",allowMultiple = true, paramType = "query", dataType = "int", example = "[1,2]"),
-            @ApiImplicitParam(name = "teacher_id", value = "教师id数组",allowMultiple = true,paramType = "query", dataType = "String", example = "['T2937','T2938']")
+            @ApiImplicitParam(name = "project_id", value = "项目id数组",allowMultiple = true,paramType = "query", dataType = "int",example = "1,2"),
+            @ApiImplicitParam(name = "apply_phase_id", value = "适应阶段数组",allowMultiple = true, paramType = "query", dataType ="1,2"),
+            @ApiImplicitParam(name = "teacher_id", value = "教师id数组",allowMultiple = true,paramType = "query", dataType = "T2937,T2938")
 
             //@ApiImplicitParam(name = "name", value = "name", dataType = "String", example = ""),
     })

@@ -3,14 +3,18 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pengyipeng.education.mapper.SupplementaryStudentDao">
-    <select id="getUserByNicknameOrPhone" resultType="com.pengyipeng.education.model.entity.User_Manager">
+    <select id="getUserByNickname" resultType="com.pengyipeng.education.model.entity.User_Manager">
         select * from user_manage where  1=1
-        <if test="nickname!=null and nickname!=''">
+
             and nickname like "%"#{nickname}"%"
-        </if>
-        <if test="phone!=null and phone!=''">
+
+
+    </select>
+    <select id="getUserByPhone" resultType="com.pengyipeng.education.model.entity.User_Manager">
+        select * from user_manage where  1=1
+
             and phone like "%"#{phone}"%"
-        </if>
+
     </select>
 
     <select id="getStudentByUserid" resultType="com.pengyipeng.education.model.entity.StudentManagement">

@@ -16,11 +16,11 @@ import java.util.List;
 public interface SupplementaryStudentService {
     /**
      * 模糊查询用户信息
-     * @param nickname 昵称
-     * @param phone 手机号(账号)
+     * @param ms 昵称或手机号
+
      * @return 用户信息
      */
-    List<User_Manager> getUserByNicknameOrPhone(String nickname, String phone);
+    List<User_Manager> getUserByNicknameOrPhone(String ms);
 
     /**
      * 获取用户id对应的学生信息

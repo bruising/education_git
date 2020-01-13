@@ -33,8 +33,8 @@ public class SupplementaryStudentController {
     private RedisUtil redisUtil;
     @ApiOperation(value = "根据用户昵称或电话模糊查询用户信息",notes = "查询成功返回查询结果，失败就返回字符串")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "nickname", value = "用户昵称", dataType = "String", example = "小米"),
-            @ApiImplicitParam(name = "phone", value = "用户电话", dataType = "String", example = "")
+            @ApiImplicitParam(name = "ms", value = "用户昵称或手机号", dataType = "String", example = "小米或8888"),
+            //@ApiImplicitParam(name = "phone", value = "phone", dataType = "String", example = "8909")
     })
     @ApiResponses({
             @ApiResponse(code = 123,message = "查询用户失败"),
@@ -44,8 +44,9 @@ public class SupplementaryStudentController {
 
     @PostMapping("/getUserByNicknameOrPhone")
     @ResponseBody
-    public Result getUserByNicknameOrPhone(@RequestParam("nickname")String nickname,@RequestParam("phone")String phone){
-        List<User_Manager> list=supplementaryStudentService.getUserByNicknameOrPhone(nickname,phone);
+    public Result getUserByNicknameOrPhone(@RequestParam("ms")String ms){
+
+        List<User_Manager> list=supplementaryStudentService.getUserByNicknameOrPhone(ms);
 
         String result1= JSON.toJSONString(list);
         Result result=new Result();
@@ -59,7 +60,7 @@ public class SupplementaryStudentController {
 
     @ApiOperation(value = "获取对应的用户的学生信息",notes = "查询成功返回结果，失败就返回字符串")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "userid" , value = "用户id", dataType = "int" , example = ""),
+            @ApiImplicitParam(name = "userid" , value = "用户id", dataType = "int" , example = "1"),
             //@ApiImplicitParam(name = "phone", value = "用户电话", dataType = "String", example = "")
     })
     @ApiResponses({
@@ -83,7 +84,7 @@ public class SupplementaryStudentController {
 
     @ApiOperation(value = "添加学生信息到相应的用户",notes = "添加成功返回结果，失败就返回字符串")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "userid" , value = "用户id", dataType = "int" , example = ""),
+           // @ApiImplicitParam(name = "userid" , value = "用户id", dataType = "int" , example = ""),
             @ApiImplicitParam(name = "sname", value = "学生姓名", dataType = "String", example = "笑笑"),
             @ApiImplicitParam(name = "birth" , value = "出生年月", dataType = "String" , example = "1990-09-09"),
     })
@@ -115,7 +116,7 @@ public class SupplementaryStudentController {
 
     @ApiOperation(value = "向课程中添加补录学生信息",notes = "添加成功返回结果，失败就返回字符串")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "course_id" , value = "课程id", dataType = "int" , example = ""),
+            @ApiImplicitParam(name = "course_id" , value = "课程id", dataType = "int" , example = "1"),
             @ApiImplicitParam(name = "sid", value = "学生id", dataType = "int", example = "5"),
             @ApiImplicitParam(name = "payment_method" , value = "支付方式", dataType = "String" , example = "微信"),
             @ApiImplicitParam(name = "payment_price", value = "支付金额", dataType = "int", example = "125")
