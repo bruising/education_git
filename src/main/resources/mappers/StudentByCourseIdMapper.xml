@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 写sql语句 namespace写接口的位置-->
+<mapper namespace="com.pengyipeng.education.mapper.CourseStudent">
+
+    <select id="showStudendinforBycourseId" resultMap="csu">
+       select  ust.userid,um.phone,cs.course_id,s.sname,s.age,cs.course_progress,cs.payment_method,cs.payment_price,cs.registration_time from course_student as cs left join student_management as s on cs.student_id=s.sid left join user_stu_teacher as ust  on cs.student_id=ust.studentid left join user_manage as um  on ust.userid=um.userid where cs.course_id = #{courseId}
+    </select>
+
+
+    <resultMap id="csu" type="com.pengyipeng.education.model.vo.CourseStudentUserVo">
+        <id property="userid" column="userid"/>
+        <result property="phone" column="phone"/>
+        <result property="courseId" column="course_id"/>
+        <result property="sname" column="sname"/>
+        <result property="age" column="age"/>
+        <result property="courseProgress" column="course_progress"/>
+        <result property="paymentMethod" column="payment_method"/>
+        <result property="paymentPrice" column="payment_price"/>
+        <result property="registrationTime" column="registration_time"/>
+
+    </resultMap>
+
+</mapper>
