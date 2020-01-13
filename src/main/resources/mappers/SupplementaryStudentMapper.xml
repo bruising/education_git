@@ -28,8 +28,8 @@
         insert into user_stu_teacher(userid,studentid) values (#{userid},#{sid})
     </insert>
     <insert id="addSupplementaryStudentByCourse_id">
-        insert into course_student(course_id,student_id,course_progress,payment_method,payment_price，registration_time) values (
-        #{course_id},#{sid},0,#{payment_method},#{payment_price}，SYSDATE()
+        insert into course_student(course_id,student_id,course_progress,registration_method,payment_method,payment_price，registration_time) values (
+        #{course_id},#{sid},0,'补录',#{payment_method},#{payment_price}，SYSDATE()
         )
     </insert>
 </mapper>

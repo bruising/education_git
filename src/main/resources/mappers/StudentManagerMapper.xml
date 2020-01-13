@@ -13,11 +13,11 @@
             <if test="phone!=null and phone!=''">
                 and u.phone=#{phone}
             </if>
-            <if test="nickname!=null and nickname!=''">
-                and u.nickname=#{nickname}
+            <if test="latest_login_time!=null and latest_login_time!=''">
+                and  DATE(u.latest_login_time)=#{latest_login_time}
             </if>
-            <if test="payment_status!=null and payment_status>0">
-                and u.payment_status=#{payment_status}
+            <if test="studentpaymentstatus!=null and studentpaymentstatus>0">
+                and s.studentpaymentstatus=#{studentpaymentstatus}
             </if>
             <if test="registration_time!=null and registration_time!=''">
                 and  DATE(u.registration_time)=#{registration_time}
@@ -38,6 +38,10 @@
     <insert id="insertStudent">
         INSERT INTO student_management (sname,age,birth)VALUES(#{sname},#{age},#{birth});
     </insert>
+
+<update id="updateStudentPayStatus">
+    UPDATE student_management SET studentpaymentstatus =1  WHERE sid =#{sid}
+</update>
 
     <resultMap id="studentmanager" type="com.pengyipeng.education.model.vo.StudentMangerVo">
         <id property="userid" column="userid"></id>

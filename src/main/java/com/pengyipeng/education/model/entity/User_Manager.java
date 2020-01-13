@@ -14,8 +14,8 @@ import java.util.List;
  * @Description:用户管理类
  */
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class User_Manager {
     //用户ID
     private Integer userid;
@@ -146,4 +146,5 @@ public class User_Manager {
         this.userid = userid;
         this.pwd = pwd;
     }
+
 }

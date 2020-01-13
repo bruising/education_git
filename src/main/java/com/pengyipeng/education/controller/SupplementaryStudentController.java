@@ -3,9 +3,12 @@ package com.pengyipeng.education.controller;
 import com.alibaba.fastjson.JSON;
 import com.pengyipeng.education.model.entity.Result;
 import com.pengyipeng.education.model.entity.StudentManagement;
+
 import com.pengyipeng.education.model.entity.User_Manager;
 import com.pengyipeng.education.service.SupplementaryStudentService;
+import com.pengyipeng.education.util.redis.RedisUtil;
 import io.swagger.annotations.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,6 +29,8 @@ import java.util.List;
 public class SupplementaryStudentController {
     @Resource
     private SupplementaryStudentService supplementaryStudentService;
+    @Autowired
+    private RedisUtil redisUtil;
     @ApiOperation(value = "根据用户昵称或电话模糊查询用户信息",notes = "查询成功返回查询结果，失败就返回字符串")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "nickname", value = "用户昵称", dataType = "String", example = "小米"),
@@ -41,6 +46,7 @@ public class SupplementaryStudentController {
     @ResponseBody
     public Result getUserByNicknameOrPhone(@RequestParam("nickname")String nickname,@RequestParam("phone")String phone){
         List<User_Manager> list=supplementaryStudentService.getUserByNicknameOrPhone(nickname,phone);
+
         String result1= JSON.toJSONString(list);
         Result result=new Result();
         result.setCode(200);
@@ -65,6 +71,7 @@ public class SupplementaryStudentController {
     @ResponseBody
     public Result getStudentByUserid(@RequestParam("userid")int userid){
         List<StudentManagement> list=supplementaryStudentService.getStudentByUserid(userid);
+        redisUtil.set("userid",userid+"");
         String result1= JSON.toJSONString(list);
         Result result=new Result();
         result.setCode(200);
@@ -87,10 +94,11 @@ public class SupplementaryStudentController {
     })
     @PostMapping("/addStudentByUserid")
     @ResponseBody
-    public Result addStudentByUserid(@RequestParam("userid")int userid, @RequestParam("sname") String sname,@RequestParam("birth") String birth){
+    public Result addStudentByUserid( @RequestParam("sname") String sname,@RequestParam("birth") String birth){
         int status=0;
         Result result=new Result();
         try {
+            int userid=(int)redisUtil.get("userid");
             status=supplementaryStudentService.addStudentByUserid(userid,sname,birth);
             String result1= JSON.toJSONString(status);
 
