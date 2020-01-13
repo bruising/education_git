@@ -18,7 +18,7 @@
     </select>
 
     <select id="getStudentByUserid" resultType="com.pengyipeng.education.model.entity.StudentManagement">
-        select * from  user_stu_teacher ust left join student_mangement sm on ust.studentid=sm.sid where ust.userid=#{userid}
+        select * from  user_stu_teacher ust left join student_management sm on ust.studentid=sm.sid where ust.userid=#{userid}
 
     </select>
     <select id="getMaxSid" resultType="int">
