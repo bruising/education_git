@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>报名</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <style>
+        .headerdiv{
+            height: 80px;
+            background: white;
+            margin-bottom: 0px;
+        }
+        .main{
+            width:100%;
+
+        }
+        .left{
+            float: left;
+        }
+        .right{
+            float:right;
+        }
+        .classinfo{
+            background:#e4e4e4;
+            padding-bottom: 10px;
+
+            box-shadow:inset 0 0 5px 5px #dddddd;
+        }
+        .text_field_div{
+            font-family: 'PingFangSC-Regular', 'PingFang SC';
+            font-weight: 400;
+            font-style: normal;
+            font-size: 12px;
+            color: #999999;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        .text_field{
+            width:100px;
+            text-align: right;
+            float: left;
+
+            font-family: 'ArialMT', 'Arial';
+            font-style: normal;
+            font-size: 17px;
+            color: #333333;
+            line-height: normal;
+        }
+        .text_classname_div{
+            padding-bottom: 20px;
+        }
+        .text_money_div{
+            padding-bottom: 20px;
+        }
+        .result{
+            font-family: 'ArialMT', 'Arial';
+            font-style: normal;
+            font-size: 18px;
+            color: #333333;
+            line-height: normal;
+        }
+        .money{
+            color: #f88014;
+
+        }
+        .paymentmethod{
+            padding-bottom: 10px;
+        }
+        .peopleinfo_inner_text{
+            font-family: 'PingFangSC-Regular', 'PingFang SC';
+            font-weight: 400;
+            font-style: normal;
+            font-size: 15px;
+        }
+        .student-field{
+            margin: 10px;
+            margin-left: 20px;
+            font-weight: 700;
+        }
+        .peopleinfo_inner_text .panel{
+            margin-bottom: 0px;
+            border-radius: 15px 15px 15px 15px;
+        }
+        #targetNameStr{
+            margin-right: 30px;
+        }
+    </style>
+</head>
+<body onload="myFunction()" class="body hide">
+    <input type="hidden" id="userId"/>
+    <nav class="navbar navbar-default headerdiv">
+        <div class="left">
+            左方
+        </div>
+        <div class="right">
+            右方
+        </div>
+        <div class="center" align="center">
+            <h1>头部</h1>
+        </div>
+    </nav>
+
+    <div class="main">
+        <div class="classinfo">
+            <div class="container">
+                <div class="text_field_div">报名课程信息</div>
+                <div class="text_classname_div">
+                    <div class="text_field">课程名称：</div>
+                    <div class="result" id="courseName"></div>
+                    <input type = "hidden" name="courseId" id="courseId" value=""/>
+                </div>
+                <div class="text_money_div">
+                    <div class="text_field">金额：</div>
+                    <div class="result money">￥<span id="coursePrice"></span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main_mian container">
+            <div class="peopleinfo">
+                <div class="text_field_div">报名人信息</div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+
+                        <div>
+                            <input type = "hidden" name="studentid" value=""/>
+                            <diSwitchingStudentsv class="peopleinfo_inner_text">
+                                <div class="left student-field">姓名：<span id="studentSname"></span></div>
+                                <div class="left student-field">年龄：<span id="studentSage"></span></div>
+                                <a href="" data-toggle="modal" data-target="#SwitchingStudents">
+                                    <div class="right student-field">
+                                        <img src="images/u27.png" />
+                                        切换学员
+                                    </div>
+                                </a>
+                            </diSwitchingStudentsv>
+                            <div class="peopleinfo_inner_text hide">
+                                <div class="left student-field">无学员,请先添加学员</div>
+                                <div class="right student-field">
+                                    <img src="images/u27.png" />
+                                    添加学员
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="paymentmethod">
+                <div class="text_field_div">支付方式</div>
+                <label for="method1">
+                    <div class="panel panel-default btn">
+                        <div class="panel-body">
+                            <div class="pay_method">
+                                <input type="radio" value="2" name="radio_signupmethod" id="method1">
+                                <img src="images/u20.png" height="30px" />
+                            </div>
+                        </div>
+                    </div>
+                </label>
+                <label for="method2">
+                    <div class="panel panel-default btn">
+                        <div class="panel-body">
+                            <div class="vertical-center">
+                                <input type="radio" value="3" name="radio_signupmethod" id="method2">
+                                <img src="images/u23.png" height="30px" />
+                            </div>
+                        </div>
+                    </div>
+                </label>
+            </div>
+            <div class="confirmButton right">
+                <div><button type="button" class="btn btn-primary" onclick="addSignUp()">确认订单</button></div>
+            </div>
+        </div>
+
+    </div>
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="SwitchingStudents" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">切换学员</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="peopleinfo_inner_text" id="peopleinfo-inner-text">
+<!--                        <label for="studentNo" style="width: 100%">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="left student-field">
+                                        <input type="radio" name="changoStudent" value="" id="studentNo"/>
+                                        姓名：</div>
+                                    <div class="left student-field">年龄：</div>
+                                </div>
+                            </div>
+                        </label>-->
+                    </div>
+
+                    <div class="peopleinfo_inner_text" id="addStudent">
+                        <div class="btn panel panel-default" style="width:100%;" onclick="addStudentInit()">
+                            <div class="panel-body text-center">
+                                <img src="images/u43.png"/>
+                                添加学员
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" onclick="targetStudent()">确定</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+</body>
+<script type="text/javascript">
+
+    //post请求通用跳转页面
+    function post(url, params) {
+        // 创建form元素
+        var temp_form = document.createElement("form");
+        // 设置form属性
+        temp_form .action = url;
+        temp_form .target = "_self";
+        temp_form .method = "post";
+        temp_form .style.display = "none";
+        // 处理需要传递的参数
+        for (var x in params) {
+            var opt = document.createElement("textarea");
+            opt.name = x;
+            opt.value = params[x];
+            temp_form .appendChild(opt);
+        }
+        document.body.appendChild(temp_form);
+        // 提交表单
+        temp_form .submit();
+    }
+
+    function addSignUp(){
+            var val=$('input:radio[name="radio_signupmethod"]:checked').val();
+            if(val==null){
+                alert("请选中一种支付方式!");
+                return;
+            }
+            else{
+                var cid = $("#courseId").val();
+                var sid = $("[name='studentid']").val();
+                var radio_signupmethod = val;
+                var uid = $("#userId").val();
+
+                //alert(cid + "," + sid + "," + radio_signupmethod);
+                $.ajax({
+                    type: "post",
+                    url: "/getStudentManagementBySId",
+                    dataType: "json",
+                    data: {
+                        sid: sid
+                    },
+                    success: function (returnStudentData) {
+                        if(returnStudentData == "" || returnStudentData == null){
+                            alert("该学号的学生不存在");
+                        }else{
+                            $.ajax({
+                                type: "post",
+                                url: "/getCourseByCId",
+                                dataType: "json",
+                                data: {
+                                    cid: cid
+                                },
+                                success: function (returnCourseData) {
+                                    if(returnCourseData == "" || returnCourseData == null){
+                                        alert("该课程编号的课程不存在");
+                                    }else{
+
+                                        $.ajax({
+                                            type: "post",
+                                            url: "/submitPay",
+                                            dataType: "json",
+                                            data: {
+                                                courseid: cid,
+                                                userid: uid,
+                                                radio_signupmethod: radio_signupmethod
+                                            },
+                                            success: function (returnOrderData) {
+                                                if(returnOrderData.code == "200"){
+                                                    alert("消息编号为" + returnOrderData.code + "的消息：添加成功");
+                                                    var orderId = JSON.parse(returnOrderData.msg).orderId; //订单编号
+                                                    var userId = JSON.parse(returnOrderData.msg).userId; //用户id
+                                                    var courseId = JSON.parse(returnOrderData.msg).courseId; //课程id
+                                                    //console.log(sid);//学生id
+                                                    var url = "/pay";//支付controller 以后在把这个pay拆分即可
+                                                    var params = {"o":orderId,"u":userId,"c":courseId,"s":sid};
+                                                    post(url,params);
+                                                }else{
+                                                    alert("消息编号为" + returnOrderData.code + "的消息：" + returnOrderData.msg);
+                                                }
+                                            }
+                                        })
+
+
+                                        //添加订单成功后
+                                        //insert into order values(null,'课程id','订单编号','用户id','定价','实付价格','1是正常，2是支付宝 3是微信','支付时间','创建时间',1);
+                                        // 这时候可以跳到一个页面了 （注意 需要传出该订单编号、用户id、课程id、学生id）
+
+                                        //跳到一个页面后点击支付时，进行两步操作
+                                        //还得判断该学生id是否报名了该课程id~~~没做 安全性有问题了
+                                        //第一步是  根据该订单编号修改状态
+                                        //第二步是  添加报名  添加报名成功后 根据订单id找到订单信息，把实付价格弄到实付价格里
+                                        //insert into course_student values(null,'课程id','学生id','课程进度默认0吧','正常','实付价格','支付时间',null)
+
+
+
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+
+            }
+
+
+
+
+
+
+    }
+
+    var flag = false;
+    $("#SwitchingStudents").on("hide.bs.modal",function(){//模态框隐藏时执行
+        if(flag){
+            $("#addStudentLabel").remove(); //添加框删除（要输入信息的）
+            $("#addStudent").toggleClass('hide');  //添加按钮显示（就是个按钮）
+        }
+    })
+
+
+    function addStudent(){
+
+
+
+
+
+        var studentName = $("#addStudentName").val();
+        var studentBirth = $("#addStudentBirth").val();
+        var userId = $("#userId").val();
+
+        var d= new   Date(Date.parse(studentBirth.replace(/-/g,"/")));
+        var curDate=new Date();
+
+        if(studentBirth == ""){
+            alert("请完整选中日期");
+            return;
+        }else if(d >=curDate){
+            alert("选择日期大于今天日期");
+            return;
+        }
+
+        $.ajax({
+            type: "post",
+            url: "/addStudent",
+            dataType: "json",
+            data: {
+                sname:studentName,
+                birth:studentBirth,
+                userid:userId
+            },
+            success: function (returnData) {
+
+                if(returnData.code == "200"){
+                    var id = returnData.msg;
+                    $.ajax({
+                        type: "post",
+                        url: "/getStudentManagementBySId",
+                        dataType: "json",
+                        data: {
+                            sid: id
+                        },
+                        success: function (returnNewStudentData) {
+                            alert("消息编号为" + returnData.code + "的消息：添加成功");
+                            $("#peopleinfo-inner-text").append("<label for='studentNo" + returnNewStudentData.sid + "' style='width: 100%'>" +
+                                "                            <div class='panel panel-default btn' style='width: 100%'>" +
+                                "                                <div class='panel-body'>" +
+                                "                                    <div class='left student-field'>" +
+                                "                                        <input type='radio' name='changoStudent' value='" + id + "' id='studentNo" + id + "'/>" +
+                                "                                        姓名：<span id='targetNameStr'>" + studentName + "</span>" +
+                                "                                        年龄：<span id='targetAgeStr'>" + returnNewStudentData.age + "</span></div>" +
+                                "                                </div>" +
+                                "                            </div>" +
+                                "                        </label>");
+                        }
+                    });
+
+                }else{
+                    alert("消息编号为" + returnData.code + "的消息：" + returnData.msg);
+                }
+                $("#addStudentLabel").remove();
+                $("#addStudent").toggleClass('hide');
+                flag = false;
+            }
+        });
+    }
+
+
+
+    function addStudentInit(){
+        //下面的就是测试用的
+        if(confirm("确定是否添加学员")){
+            $("#addStudent").addClass('hide');
+            flag = true;
+            $("#peopleinfo-inner-text").append("<label for='studentNo' id='addStudentLabel' style='width: 100%'>" +
+                "                                   <div class='panel panel-default'>" +
+                "                                       <div class='panel-body'>" +
+                "                                           <div class='input-group'>" +
+                "                                               <span class='input-group-addon'>姓名</span>" +
+                "                                               <input type='text' id='addStudentName' class='form-control'/>" +
+                "                                               <span class='input-group-addon'>出生日期</span>" +
+                "                                               <input type='date' id='addStudentBirth' class='form-control'/>" +
+                "                                               <span class='input-group-btn'>" +
+                "                                                   <button class='btn btn-primary' onclick='addStudent()'>确定添加</button>" +
+                "                                               </span>" +
+                "                                           </div>" +
+                "                                       </div>" +
+                "                                   </div>" +
+                "                               </label>");
+        }
+
+    }
+    function targetStudent(){
+        var attitude=document.getElementsByName("changoStudent");
+        var value = 0;
+        for(var i=0;i<attitude.length;i++){
+            if(attitude[i].checked == true){
+                value = attitude[i].value;
+            }
+        }
+        var sname = $("#studentNo" + value).parent().find("#targetNameStr").text();
+        var age = $("#studentNo" + value).parent().find("#targetAgeStr").text();
+
+        $("[name='studentid']").val(value);
+        $("#studentSname").text(sname);
+        $("#studentSage").text(age);
+        $("#SwitchingStudents").modal('hide');
+    }
+    function myFunction() {
+        $("#peopleinfo-inner-text").empty();
+        $.ajax({
+            type:"post",
+            url:"/signUpInit",
+            dataType:"json",
+            global:false,
+            success:function(returnData){
+                $("#userId").val(returnData.userId);
+                $.ajax({
+                    type:"post",
+                    url:"/getCourse",
+                    dataType:"json",
+                    global:false,
+                    data:{
+                        courseId: returnData.courseId
+                    },
+                    success:function(returnCourseData){
+                        $("#courseName").text(returnCourseData.courseName);
+                        $("#courseId").val(returnCourseData.courseId);
+                        $("#coursePrice").text(returnCourseData.coursePrice);
+                    }
+                });
+                $.ajax({
+                    type:"post",
+                    url:"/getAllStudent",
+                    dataType:"json",
+                    global:false,
+                    data:{
+                        userId: returnData.userId
+                    },
+                    success:function(returnStudentData){
+                        $("[name='studentid']").val(returnStudentData[0].sid);
+                        $("#studentSname").text(returnStudentData[0].sname);
+                        $("#studentSage").text(returnStudentData[0].age);
+                        $(returnStudentData).each(function(i, item){
+                            var id = item.sid;
+                            var sname = item.sname;
+                            var age = item.age;
+                            $("#peopleinfo-inner-text").append("<label for='studentNo" + id + "' style='width: 100%'>" +
+                                        "                            <div class='panel panel-default btn' style='width: 100%'>" +
+                                        "                                <div class='panel-body'>" +
+                                        "                                    <div class='left student-field'>" +
+                                        "                                        <input type='radio' name='changoStudent' value='" + id + "' id='studentNo" + id + "'/>" +
+                                        "                                        姓名：<span id='targetNameStr'>" + sname + "</span>" +
+                                        "                                        年龄：<span id='targetAgeStr'>" + age + "</span></div>" +
+                                        "                                </div>" +
+                                        "                            </div>" +
+                                        "                        </label>");
+                        })
+                        $(".body").toggleClass("hide");//在这里解决部分闪烁的问题是。。让整个body隐藏起来等他加载完在显示。。
+                        //缺点：造成了大面积的闪烁。。。。
+                    }
+                });
+            }
+        });
+    }
+</script>
+</html>
