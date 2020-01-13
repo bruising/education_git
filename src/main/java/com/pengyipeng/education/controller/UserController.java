@@ -7,6 +7,10 @@ import com.pengyipeng.education.util.MD5;
 import com.pengyipeng.education.util.UserAgentUtils;
 import com.pengyipeng.education.util.redis.RedisUtil;
 import cz.mallat.uasparser.UserAgentInfo;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,19 +35,25 @@ import java.util.UUID;
  * @date 2020/1/4 星期六 15:48
  */
 @Controller
+@Api(tags = "这是吕继伟登录类")
 public class UserController {
 
 
     @Resource
     private UserService userService;
     @Autowired
-    private RedisUtil redisUtils;
-    @RequestMapping("/")
+    private RedisUtil redisUtil;
+    @ApiOperation(value = "进入登录")
+    @RequestMapping(value = "/",method= RequestMethod.GET)
     public String login(){
         return "login";
     }
-
-    @RequestMapping(value = "/loginByPwd")
+    @ApiOperation(value = "输入学号和密码，验证信息",notes = "对了就给学生数据跳转页面，错了就返回登录页面")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "userid",value = "userid",dataType = "String",example = "2"),
+            @ApiImplicitParam(name = "pwd",value = "pwd",dataType = "String",example = "123456")
+    })
+    @RequestMapping(value = "/loginByPwd",method= RequestMethod.POST)
     @ResponseBody
     public String  loginByPwd(User_Manager user_manager ,HttpServletRequest request)throws Exception{
         String ua=request.getHeader("User-Agent");
@@ -51,7 +61,7 @@ public class UserController {
         UserAgentInfo userAgentInfo= UserAgentUtils.uaSparser.parse(ua);
         String type=userAgentInfo.getDeviceType();
         Object[] loginResult=this.login(user_manager,type);
-        System.out.println(loginResult==null);
+
         if (loginResult==null){
            request.setAttribute("shibai","shibai");
 
@@ -69,7 +79,11 @@ public class UserController {
         }
 
     }
-
+    @ApiOperation(value = "接受学号和密码",notes = "返回md5密码")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "userid",value = "userid",dataType = "String",example = "2"),
+            @ApiImplicitParam(name = "pwd",value = "pwd",dataType = "String",example = "123456")
+    })
     @RequestMapping( value="/chazhao", method= RequestMethod.POST, produces="application/json;charset=UTF-8" )
     public void chazhao(String pwd,int userid,HttpServletResponse response) {
         String Md5=pwd;
@@ -99,11 +113,15 @@ public class UserController {
             }
 
     }
+    @ApiOperation(value = "接受学号，验证信息",notes = "对返回md5密码，错无返回")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "userid",value = "userid",dataType = "String",example = "2")
+    })
     @RequestMapping( value="/chazhao1", method= RequestMethod.POST, produces="application/json;charset=UTF-8" )
     public void chazhao1(int userid,HttpServletResponse response) {
         String key="user"+userid;
 
-        Boolean flag=redisUtils.exists(key);
+        Boolean flag=redisUtil.exists(key);
         System.out.println(flag);
         if(flag) {
             String Md5=userService.getMd5pwd(userid);
@@ -148,12 +166,12 @@ public class UserController {
 
         String tokenKey="user"+user_manager.getUserid();
         String tokenValue=null;
-        if ((tokenValue=(String)redisUtils.get(tokenKey))!=null){
-            redisUtils.delete(tokenKey);
-            redisUtils.delete(tokenValue);
+        if ((tokenValue=(String)redisUtil.get(tokenKey))!=null){
+            redisUtil.delete(tokenKey);
+            redisUtil.delete(tokenValue);
         }
-        redisUtils.set(tokenKey,token,30000);
-        redisUtils.set(token, JSON.toJSONString(user_manager),30000);
+        redisUtil.set(tokenKey,token,10);
+        redisUtil.set(token, JSON.toJSONString(user_manager),10);
     }
 
 }

@@ -1,13 +1,17 @@
 package com.pengyipeng.education.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.pengyipeng.education.model.entity.Result;
 import com.pengyipeng.education.service.TeacherService;
+import com.pengyipeng.education.util.qiniu.QNUtil;
 import io.swagger.annotations.*;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,6 +28,9 @@ public class TeacherController {
 
     @Resource
     private TeacherService teacherService;
+
+    @Resource
+    private QNUtil qnUtil;
 
     /**
      * 根据条件返回教师信息
@@ -103,7 +110,7 @@ public class TeacherController {
      */
     @ApiOperation(value = "新建教师", notes = "成功或失败都有新增的结果，返回提示字符串(如果传入头像则添加，没有则不添加)")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "photo", value = "photo", dataType = "String", example = "xxx"),
+            @ApiImplicitParam(name = "photo", value = "photo", dataType = "String", example = "xxx（传MultipartFile类的JSON字符串，可以不上传）"),
             @ApiImplicitParam(name = "tname", value = "tname", dataType = "String", example = "xxx"),
             @ApiImplicitParam(name = "phone", value = "phone", dataType = "String", example = "13322221111"),
             @ApiImplicitParam(name = "email", value = "email", dataType = "String", example = "xxx@qq.com"),
@@ -121,10 +128,20 @@ public class TeacherController {
                              @RequestParam(value = "photo", required = false, defaultValue = "") String photo,
                              @RequestParam(value = "status", required = false, defaultValue = "0") Integer status,
                              @RequestParam(value = "email", required = false, defaultValue = "") String email,
-                             @RequestParam(value = "info", required = false, defaultValue = "") String info){
+                             @RequestParam(value = "info", required = false, defaultValue = "") String info) throws IOException {
         Map<String, Object> map = new HashMap<>();
+
+        //默认传JSON字符串
         if (photo!=""){
-            map.put("photo", photo);
+            MultipartFile photoFile = (MultipartFile)JSON.parse(phone);
+            String url = qnUtil.fileUpload(photoFile.getInputStream(), photoFile.getName());
+            System.out.println(url);
+            if (url.equals("failed")){
+                map.put("uploadStatus", "failed");
+            }else {
+                map.put("uploadStatus", "success");
+                map.put("photo", url);
+            }
         }
         if (phone!=""){
             map.put("phone", phone);
@@ -158,7 +175,7 @@ public class TeacherController {
     @ApiOperation(value = "修改教师信息", notes = "成功或失败都有修改的结果，返回提示字符串(如果传入头像则添加，没有则不添加)")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "tid", value = "tid", dataType = "String", example = "T2940"),
-            @ApiImplicitParam(name = "photo", value = "photo", dataType = "String", example = "xxx"),
+            @ApiImplicitParam(name = "photo", value = "photo", dataType = "String", example = "xxx（传MultipartFile类的JSON字符串，可以不上传）"),
             @ApiImplicitParam(name = "tname", value = "tname", dataType = "String", example = "xxx"),
             @ApiImplicitParam(name = "phone", value = "phone", dataType = "String", example = "13322221111"),
             @ApiImplicitParam(name = "email", value = "email", dataType = "String", example = "xxx@qq.com(需要传入但不修改----登录账号不能修改)"),
@@ -176,11 +193,8 @@ public class TeacherController {
                                     @RequestParam(value = "phone", required = false, defaultValue = "") String phone,
                                     @RequestParam(value = "status", required = false, defaultValue = "0") Integer status,
                                     @RequestParam(value = "tname", required = false, defaultValue = "") String tname,
-                                    @RequestParam(value = "info", required = false, defaultValue = "") String info){
+                                    @RequestParam(value = "info", required = false, defaultValue = "") String info) throws IOException{
         Map<String, Object> map = new HashMap<String, Object>();
-        if (photo!=""){
-            map.put("photo", photo);
-        }
         if (email!=""){
             map.put("email", email);
         }
@@ -195,6 +209,20 @@ public class TeacherController {
         }
         if (info!=""){
             map.put("info", info);
+        }
+        if (tid!=""){
+            map.put("tid", tid);
+        }
+        if (photo!=""){
+            MultipartFile photoFile = (MultipartFile)JSON.parse(phone);
+            String url = qnUtil.fileUpload(photoFile.getInputStream(), photoFile.getName());
+            System.out.println(url);
+            if (url.equals("failed")){
+                map.put("uploadStatus", "failed");
+            }else {
+                map.put("uploadStatus", "success");
+                map.put("photo", url);
+            }
         }
         return teacherService.updateTeacherInfo(map);
     }

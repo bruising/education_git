@@ -55,7 +55,7 @@ public class StudentMannagerController {
         System.out.println(registration_time);
         System.out.println(registration_time);
         Message message = new Message();
-        Map<String,Object> map=new HashMap<>();
+        Map<String,Object>map=new HashMap<>();
         if (registration_time!="" && registration_time!=null){
             System.out.println(registration_time+"_____++++++++");
             //Date registration_time=(new SimpleDateFormat("yyyy-MM-dd")).parse(registration_times);
@@ -74,7 +74,7 @@ public class StudentMannagerController {
         }
         System.out.println("++++++++++++++++++++++");
          System.out.println(map.get("registration_time").toString());
-           List<StudentMangerVo> studentMangerVoList = studentManagerService.studentManInforQuery(map);
+           List<StudentMangerVo> studentMangerVoList =studentManagerService.studentManInforQuery(map);
            if (studentMangerVoList != null && studentMangerVoList.size() > 0) {
                for (StudentMangerVo student:studentMangerVoList) {
                    System.out.println(student.getRegistration_time());

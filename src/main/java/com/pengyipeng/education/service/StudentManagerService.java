@@ -1,5 +1,6 @@
 package com.pengyipeng.education.service;
 
+import com.mysql.cj.x.protobuf.MysqlxDatatypes;
 import com.pengyipeng.education.model.vo.StudentMangerVo;
 import com.pengyipeng.education.model.vo.StudentProjectCourseVo;
 
@@ -26,5 +27,4 @@ public interface StudentManagerService {
      *查询该学生报名课程
      */
     public List<StudentProjectCourseVo> selectCourseNameBySid(int sid);
-
 }

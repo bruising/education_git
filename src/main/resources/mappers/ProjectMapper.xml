@@ -4,7 +4,7 @@
     <select id="getProgect" resultMap="p">
         SELECT * FROM
         (select bb.*,aa.course_count from
-        (SELECT p.id,p.project_no,p.`name`,p.intro,count(s.student_id) stu_count,p.create_date,p.flag FROM project p INNER JOIN project_student s ON p.id=s.project_id GROUP BY p.id) bb,
+        (SELECT p.id,p.project_no,p.`name`,p.intro,count(s.student_id) stu_count,p.create_date,p.flag,p.show_order FROM project p INNER JOIN project_student s ON p.id=s.project_id GROUP BY p.id) bb,
         (SELECT p.id,count(c.course_id) course_count FROM project p INNER JOIN course_project c ON p.id=c.project_id GROUP BY p.id) aa
         WHERE bb.id=aa.id) w
         <where>
@@ -88,6 +88,48 @@
         <if test="sname!=null and sname!=''">
             WHERE dd.sname LIKE concat('%',#{sname},'%')
         </if>
+    </select>
+
+    <select id="getProById" resultMap="p">
+        SELECT p.project_no,p.`name`,p.intro,count(c.course_id) course_count FROM project p INNER JOIN course_project c ON p.id=c.project_id AND p.id=#{id} GROUP BY p.id
+    </select>
+
+    <select id="getCourseByPro" resultType="com.pengyipeng.education.model.vo.CourseVO">
+        SELECT course.course_id courseId,course.course_name courseName,course.course_introduce courseIntroduce,course.course_cycle courseCycle,course.course_status courseStatus,course.course_ability_training  courseAbilityTraining FROM course WHERE course_id in
+        (SELECT course_id courseId FROM course_project WHERE project_id=#{id})
+        <if test="course_name!=null and course_name!=''">
+            AND course.course_name like concat('%',#{course_name},'%')
+        </if>
+        limit #{page},#{limit}
+    </select>
+
+    <select id="getCourseCount" resultType="java.lang.Integer">
+        SELECT count(*) FROM course WHERE course_id in
+        (SELECT course_id FROM course_project WHERE project_id=#{id})
+        <if test="course_name!=null and course_name!=''">
+            AND course.course_name like concat('%',#{course_name},'%')
+        </if>
+    </select>
+
+    <select id="selectCourseNameByProjectId" resultType="com.pengyipeng.education.model.vo.CourseVO">
+        SELECT
+            course.course_name
+        FROM
+            course
+            INNER JOIN course_project ON course.course_id = course_project.course_id
+        WHERE
+            course_project.project_id = #{id}
+        GROUP BY
+            course_project.course_id
+    </select>
+
+
+	<select id="getProjectInfoByProjectId" resultType="com.pengyipeng.education.model.entity.Project">
+        SELECT project.flag FROM project WHERE project.id = #{id}
+    </select>
+
+    <select id="getProjectShowOrder" resultType="com.pengyipeng.education.model.entity.Project">
+        SELECT project.show_order AS showOrder FROM project
     </select>
 
     <resultMap id="p" type="com.pengyipeng.education.model.entity.Project">

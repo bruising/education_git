@@ -31,7 +31,7 @@ import java.util.List;
  * @date 2020/1/7 10:29 星期二
  */
 @Controller
-@Api(tags = "这是李晨写的类")
+@Api(tags = "添加课程信息，放入缓存-李陈")
 public class AddCourseController {
 
 
@@ -44,15 +44,15 @@ public class AddCourseController {
 
     @ApiOperation(value = "输入课程信息",notes = "对了返回true，错了就返回false")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "course_name", value = "course_name", dataType = "String", example = "贪吃蛇"),
-            @ApiImplicitParam(name = "course_price", value = "course_price", dataType = "Double", example = "156.9"),
-            @ApiImplicitParam(name = "course_introduce", value = "course_introduce", dataType = "String", example = "123456"),
-            @ApiImplicitParam(name = "course_cycle", value = "course_cycle", dataType = "String", example = "8周"),
-            @ApiImplicitParam(name = "course_ability_training", value = "course_ability_training", dataType = "String", example = "动手能力"),
+            @ApiImplicitParam(name = "course_name", value = "课程名称", dataType = "String", example = "贪吃蛇"),
+            @ApiImplicitParam(name = "course_price", value = "课程价格", dataType = "Double", example = "156.9"),
+            @ApiImplicitParam(name = "course_introduce", value = "课程简介", dataType = "String", example = "123456"),
+            @ApiImplicitParam(name = "course_cycle", value = "教学周期", dataType = "String", example = "8周"),
+            @ApiImplicitParam(name = "course_ability_training", value = "能力培养", dataType = "String", example = "动手能力"),
             //@ApiImplicitParam(name = "course_pic", value = "course_pic", dataType = "String", example = "Http://www.budai.com"),
-            @ApiImplicitParam(name = "project_id", value = "project_id",allowMultiple = true,paramType = "query", dataType = "int", example ="[1,2]"),
-            @ApiImplicitParam(name = "apply_phase_id", value = "apply_phase_id",allowMultiple = true, paramType = "query", dataType = "int", example = "[1,2]"),
-            @ApiImplicitParam(name = "teacher_id", value = "teacher_id",allowMultiple = true,paramType = "query", dataType = "String", example = "['T2937','T2938']")
+            @ApiImplicitParam(name = "project_id", value = "项目id数组",allowMultiple = true,paramType = "query", dataType = "int", example ="[1,2]"),
+            @ApiImplicitParam(name = "apply_phase_id", value = "适应阶段数组",allowMultiple = true, paramType = "query", dataType = "int", example = "[1,2]"),
+            @ApiImplicitParam(name = "teacher_id", value = "教师id数组",allowMultiple = true,paramType = "query", dataType = "String", example = "['T2937','T2938']")
 
             //@ApiImplicitParam(name = "name", value = "name", dataType = "String", example = ""),
     })
@@ -159,9 +159,9 @@ public class AddCourseController {
      * @param pname
      * @return
      */
-    @ApiOperation(value = "输入项目信息",notes = "查询成功返回查询结果，错了就返回字符串")
+    @ApiOperation(value = "根据项目名称查询项目信息",notes = "查询成功返回查询结果，错了就返回字符串")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "project_name", value = "project_name", dataType = "String", example = "街"),
+            @ApiImplicitParam(name = "project_name", value = "项目名称", dataType = "String", example = "街"),
     })
     @ApiResponses({
             @ApiResponse(code = 123,message = "添加项目失败"),
@@ -207,9 +207,9 @@ public class AddCourseController {
      * @param tname
      * @return
      */
-    @ApiOperation(value = "输入老师信息",notes = "查询成功返回查询结果，错了就返回字符串")
+    @ApiOperation(value = "根据老师姓名查询老师信息",notes = "查询成功返回查询结果，错了就返回字符串")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "teacher_name", value = "teacher_name", dataType = "String", example = "王"),
+            @ApiImplicitParam(name = "teacher_name", value = "老师姓名", dataType = "String", example = "王"),
     })
     @ApiResponses({
             @ApiResponse(code = 123,message = "查询老师失败"),
@@ -227,16 +227,6 @@ public class AddCourseController {
         result.setMessage("老师信息");
         result.setData(result1);
         System.out.println(result1);
-//        response.setContentType("text/json; charset=utf-8");
-//        PrintWriter out;
-//        try {
-//            out = response.getWriter();
-//            out.print(result);
-//            out.flush();
-//            out.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
         return result;
     }
 

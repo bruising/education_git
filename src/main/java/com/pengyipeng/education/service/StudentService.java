@@ -24,4 +24,22 @@ public interface StudentService {
      * @return
      */
     int updateInfo(StudentVo studentVo);
+
+    /**
+     * 修改手机号
+     * @param userid
+     * @param pwd
+     * @param newPhone
+     * @return
+     */
+    int updatePhone(int userid,String pwd,String newPhone);
+
+    /**
+     * 修改邮箱
+     * @param userid
+     * @param pwd
+     * @param newEmail
+     * @return
+     */
+    int updateEmail(int userid,String pwd,String newEmail);
 }

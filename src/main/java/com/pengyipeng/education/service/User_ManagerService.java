@@ -65,4 +65,13 @@ public interface User_ManagerService {
      * @return 教师用户集合
      */
     public User_TeacherVo getTeaUserByUserid(Integer userid);
+
+    public  int queryAllUserCount();
+    public  int   queryAddUserEveryday();
+
+
+    //查询每天新增付费用户数
+    public   int  queryAddPaymentUserCountEveryday();
+
+    public   int  queryActiveUserCount();
 }

@@ -89,4 +89,24 @@ public class User_ManagerServiceImpl implements User_ManagerService {
     public User_TeacherVo getTeaUserByUserid(Integer userid) {
         return umdao.getTeaUserByUserid(userid);
     }
+
+    @Override
+    public int queryAllUserCount() {
+        return umdao.queryAllUserCount();
+    }
+
+    @Override
+    public int queryAddUserEveryday() {
+        return umdao.queryAddUserEveryday();
+    }
+
+    @Override
+    public int queryAddPaymentUserCountEveryday() {
+        return umdao.queryAddPaymentUserCountEveryday();
+    }
+
+    @Override
+    public int queryActiveUserCount() {
+        return umdao.queryActiveUserCount();
+    }
 }
