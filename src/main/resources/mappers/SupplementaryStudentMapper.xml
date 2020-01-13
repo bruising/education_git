@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pengyipeng.education.mapper.SupplementaryStudentDao">
+    <select id="getUserByNicknameOrPhone" resultType="com.pengyipeng.education.model.entity.User_Manager">
+        select * from user_manage where  1=1
+        <if test="nickname!=null and nickname!=''">
+            and nickname like "%"#{nickname}"%"
+        </if>
+        <if test="phone!=null and phone!=''">
+            and phone like "%"#{phone}"%"
+        </if>
+    </select>
+
+    <select id="getStudentByUserid" resultType="com.pengyipeng.education.model.entity.StudentManagement">
+        select * from  user_stu_teacher ust left join student_mangement sm on ust.studentid=sm.sid where ust.userid=#{userid}
+
+    </select>
+    <select id="getMaxSid" resultType="int">
+        select MAX(sid) from student_management ;
+  
+    </select>
+    <insert id="addStudentByUserid">
+        insert into  student_management(sname,age,birth,studentpaymentstatus) values(#{sname},#{age},#{birth},1)
+    </insert>
+    <insert id="addUser_stu_teacher">
+        insert into user_stu_teacher(userid,studentid) values (#{userid},#{sid})
+    </insert>
+    <insert id="addSupplementaryStudentByCourse_id">
+        insert into course_student(course_id,student_id,course_progress,payment_method,payment_price，registration_time) values (
+        #{course_id},#{sid},0,#{payment_method},#{payment_price}，SYSDATE()
+        )
+    </insert>
+</mapper>
