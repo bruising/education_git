@@ -28,7 +28,9 @@ public class CourseStudent {
 
 
     @ApiOperation(value = "输入课程id",notes = "获取到学生信息和用户信息")
-    @ApiImplicitParam(name = "courseid",value = "课程的id",dataType = "String",example = "181022090")
+    @ApiImplicitParams({
+      @ApiImplicitParam(name ="courseId",value = "courseId",dataType = "String",example = "181022090")
+    })
     @ApiResponses({
             @ApiResponse(code = 200,message = "获取信息成功"),
             @ApiResponse(code = 500,message = "获取信息失败")
@@ -36,8 +38,13 @@ public class CourseStudent {
     @PostMapping("showStudentInforByCourseId")
     @ResponseBody
     public Result showStudentInforByCourseId(String courseId){
+        System.out.println("课程的id是"+courseId);
         Result result = new Result();
         List<CourseStudentUserVo> courseStudentUserVos = service.showStudentInforByCourseId(courseId);
+//        for (CourseStudentUserVo vo:courseStudentUserVos
+//             ) {
+//            System.out.println(courseStudentUserVos);
+//        }
         if (courseStudentUserVos.size() > 0){
             System.out.println("查询成功");
             result.setCode(200);
