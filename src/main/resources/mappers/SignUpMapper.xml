@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pengyipeng.education.mapper.SignUpMapper">
+
+    <select id="getCouseById" resultType="com.pengyipeng.education.model.vo.CourseVO">
+        select * from course where course_id = #{course_id} and course_status = 1;
+    </select>
+
+    <select id="getStudentManagementByUserId" resultType="com.pengyipeng.education.model.entity.StudentManagement">
+        select sm.* from user_stu_teacher ust,student_management sm where ust.studentid = sm.sid and ust.userid = #{userid};
+    </select>
+
+    <select id="getStudentManagementBySId" resultType="com.pengyipeng.education.model.entity.StudentManagement">
+        select * from student_management where sid=#{sid}
+    </select>
+
+    <select id="getCourseByCId" resultType="com.pengyipeng.education.model.vo.CourseVO">
+        select * from course where course_id=#{cid}
+    </select>
+
+    <insert id="addStudentManagement" useGeneratedKeys="true" keyProperty="sid">
+        insert into student_management values(null,#{addStudent.sname},TIMESTAMPDIFF(year,#{addStudent.birth},Now()),#{addStudent.birth},2)
+    </insert>
+
+    <insert id="addUserStuTeacher">
+        insert into user_stu_teacher values(null,#{addStudent.userid},#{addStudent.sid},null);
+    </insert>
+
+    <insert id="addOrder" useGeneratedKeys="true" keyProperty="orderId">
+        insert into `order` values(null,#{addOrder.courseId},#{addOrder.orderTradeNo},#{addOrder.userId},#{addOrder.orderPrice},null,#{addOrder.payment},null,now(),1);
+    </insert>
+
+    <update id="updateOrder">
+        update `order` set status=#{status},pay_time=now(),pay_price=#{payPrice} where order_id=#{orderId};
+    </update>
+
+    <insert id="addCourseStudent">
+        insert into course_student values(null,#{cid},#{sid},0,'正常',#{payPrice},now(),null)
+    </insert>
+</mapper>
