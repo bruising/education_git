@@ -10,6 +10,7 @@ import java.util.List;
  * @Package com.pengyipeng.education.model.vo
  * @date 2020/1/6 15:03 星期一
  */
+//教师类
 public class TeacherVo {
 
     private Integer status, userid;
