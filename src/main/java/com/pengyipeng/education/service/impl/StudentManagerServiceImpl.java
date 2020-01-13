@@ -18,7 +18,7 @@ import java.util.Map;
  * @date 2020/1/6 16:09 星期一
  */
 @Service
-public class StudentMapperServiceImpl implements StudentManagerService {
+public class StudentManagerServiceImpl implements StudentManagerService {
 @Resource
     StudentManagerMapper studentManagerMapper;
     public List<StudentMangerVo> studentManInforQuery(Map<String,Object> map){
@@ -30,5 +30,7 @@ public class StudentMapperServiceImpl implements StudentManagerService {
     public List<StudentProjectCourseVo> selectCourseNameBySid(int sid){
         return studentManagerMapper.selectCourseNameBySid(sid);
     }
-
+    public int updateStudentPayStatus(int sid){
+        return studentManagerMapper.updateStudentPayStatus(sid);
+    }
 }

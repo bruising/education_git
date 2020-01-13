@@ -30,11 +30,15 @@ import java.util.Map;
 public class StudentMannagerController {
     @Resource
     StudentManagerService studentManagerService;
+    /**
+     *查询
+     * @param studentpaymentstatus 1 已付费，2 未付费
+     */
     @ApiOperation(value = "输入条件查询的信息进行查询",notes = "对了就给学生数据，错了就返回字符串")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "phone",value = "phone",dataType = "String",example = "13405485400"),
-            @ApiImplicitParam(name = "nickname",value = "nickname",dataType = "String",example = "小米"),
-            @ApiImplicitParam(name = "payment_status",value = "payment_status",dataType = "String",example = "1"),
+            @ApiImplicitParam(name = "latest_login_time",value = "latest_login_time",dataType = "String",example = "2020-01-15"),
+            @ApiImplicitParam(name = "studentpaymentstatus",value = "studentpaymentstatus",dataType = "String",example = "1"),
             @ApiImplicitParam(name = "registration_time",value = "registration_time",dataType = "String",example = "2020-01-15")
     })
     @ApiResponses({
@@ -44,15 +48,14 @@ public class StudentMannagerController {
     @PostMapping(value = "studentInfo")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     public Message studentInfo(@RequestParam(value = "phone" ,required = false,defaultValue ="")String phone,
-                               @RequestParam(value = "nickname",required = false,defaultValue ="")String nickname,
-                               @RequestParam(value = "payment_status",required = false,defaultValue ="0")Integer payment_status,
+                               @RequestParam(value = "latest_login_time",required = false,defaultValue ="")String latest_login_time,
+                               @RequestParam(value = "studentpaymentstatus",required = false,defaultValue ="0")Integer studentpaymentstatus,
                                @RequestParam(value = "registration_time",required = false,defaultValue ="") String registration_time
                                ){
         System.out.println("进入方法进行查询");
         System.out.println(phone);
-        System.out.println(nickname);
-        Integer pay=payment_status;
-        System.out.println(registration_time);
+        System.out.println(latest_login_time);
+        Integer pay=studentpaymentstatus;
         System.out.println(registration_time);
         Message message = new Message();
         Map<String,Object>map=new HashMap<>();
@@ -64,13 +67,13 @@ public class StudentMannagerController {
         if (phone!=""){
             map.put("phone",phone);
         }
-        if (nickname!=""){
-            map.put("nickname",nickname);
+        if (latest_login_time!="" && latest_login_time!=null){
+            map.put("latest_login_time",latest_login_time);
         }
         if (pay>0){
             System.out.println("----------------------------");
-            System.out.println(payment_status);
-            map.put("payment_status",pay);
+            System.out.println(studentpaymentstatus);
+            map.put("studentpaymentstatus",pay);
         }
         System.out.println("++++++++++++++++++++++");
          System.out.println(map.get("registration_time").toString());
@@ -134,6 +137,40 @@ public class StudentMannagerController {
         }else {
             message.setCode("123");
             message.setMsg("查询失败");
+        }
+        return message;
+    }
+    /**
+     *修改为真正的学生
+     * @param studentpaymentstatus 1 已付费，2 未付费
+     */
+    @ApiOperation(value = "输入学生的id和学生现在的支付状态进行添加学生",notes = "对了，错了返回字符串")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "sid",value = "sid",dataType = "int",example = "00002"),
+            @ApiImplicitParam(name = "studentpaymentstatus",value = "studentpaymentstatus",dataType = "int",example = "2"),
+    })
+    @ApiResponses({
+            @ApiResponse(code = 123,message = "添加失败！"),
+            @ApiResponse(code = 200,message = "添加成功"),
+            @ApiResponse(code = 256,message = "学生已为付费学生！"),
+    })
+    @PostMapping(value = "updateStudentPayStatus")
+    public Message updateStudentPayStatus(
+            @RequestParam(value = "sid" ,required = false,defaultValue ="")int sid,
+            @RequestParam(value = "studentpaymentstatus" ,required = false,defaultValue ="")int studentpaymentstatus){
+        Message message = new Message();
+        if (studentpaymentstatus==1){
+            message.setCode("256");
+            message.setMsg("学生已为付费学生");
+       }else {
+            int i=studentManagerService.updateStudentPayStatus(sid);
+            if (i>0){
+                message.setCode("200");
+                message.setMsg("添加成功");
+            }else {
+                message.setCode("123");
+                message.setMsg("添加失败");
+            }
         }
         return message;
     }
