@@ -29,6 +29,9 @@ public interface StudentManagerMapper {
      *查询该学生报名课程
      */
     public List<StudentProjectCourseVo> selectCourseNameBySid(int sid);
-
+    /**
+    *修改为真正的学生
+    */
+    public int updateStudentPayStatus(int sid);
 
 }
