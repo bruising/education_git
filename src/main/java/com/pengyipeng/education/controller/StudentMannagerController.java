@@ -140,4 +140,38 @@ public class StudentMannagerController {
         }
         return message;
     }
+    /**
+     *修改为真正的学生
+     * @param studentpaymentstatus 1 已付费，2 未付费
+     */
+    @ApiOperation(value = "输入学生的id和学生现在的支付状态进行添加学生",notes = "对了，错了返回字符串")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "sid",value = "sid",dataType = "int",example = "00002"),
+            @ApiImplicitParam(name = "studentpaymentstatus",value = "studentpaymentstatus",dataType = "int",example = "2"),
+    })
+    @ApiResponses({
+            @ApiResponse(code = 123,message = "添加失败！"),
+            @ApiResponse(code = 200,message = "添加成功"),
+            @ApiResponse(code = 256,message = "学生已为付费学生！"),
+    })
+    @PostMapping(value = "updateStudentPayStatus")
+    public Message updateStudentPayStatus(
+            @RequestParam(value = "sid" ,required = false,defaultValue ="")int sid,
+            @RequestParam(value = "studentpaymentstatus" ,required = false,defaultValue ="")int studentpaymentstatus){
+        Message message = new Message();
+        if (studentpaymentstatus==1){
+            message.setCode("256");
+            message.setMsg("学生已为付费学生");
+        }else {
+            int i=studentManagerService.updateStudentPayStatus(sid);
+            if (i>0){
+                message.setCode("200");
+                message.setMsg("添加成功");
+            }else {
+                message.setCode("123");
+                message.setMsg("添加失败");
+            }
+        }
+        return message;
+    }
 }
