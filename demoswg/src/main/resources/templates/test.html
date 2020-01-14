@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>交流页面</title>
+</head>
+<body>
+    <h1 align="center">聊天室</h1>
+    <table align="center">
+        <tr>
+            <td><textarea id="words" cols="25" rows="5"></textarea></td>
+        </tr>
+        <tr>
+           <td><button onclick="send()">发送消息</button></td>
+        </tr>
+        <tr>
+            <td>
+                <p align="center" id="xxx">聊天记录</p>
+            </td>
+        </tr>
+    </table>
+</body>
+<script>
+    var websocket=null;
+    if ('WebSocket' in window){
+        websocket=new WebSocket("ws://localhost:8082/lc");
+
+    } else {
+        alert("这个浏览器不支持");
+    }
+    websocket.onopen=function (event) {
+        alert("连上了");
+    }
+    websocket.onclose=function (event) {
+        alert("关闭了");
+    }
+    websocket.onerror=function (event) {
+        alert("传输错误");
+    }
+    websocket.onmessage=function (event) {
+        document.getElementById("xxx").innerHTML+='<br>'+event.data;
+    }
+    function send() {
+        var msg=document.getElementById("words").value;
+        websocket.send(msg);
+    }
+</script>
+</html>
